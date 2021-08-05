@@ -11240,16 +11240,7 @@ body {
 }
 
 .about-section {
-  padding-top: 10rem;/*
-  background: url("/static/assets/img/Disney Princess Icons.png");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: contain;
-  position: relative;
-  min-height: auto;
-  padding: 15rem 0;*/
-
-  /*background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);*/
+  padding-top: 3rem;
 }
 .about-section p {
   margin-bottom: 5rem;
@@ -11343,11 +11334,12 @@ body {
 }
 
 .main-icons{
-    width:100%;
+    width:60%;
 }
 
 #map{
     border: 1px solid black;
-    height: 30rem;
-    width: 60rem;
+    height: 35rem;
+    width: 65rem;
+    margin:auto;
 }
