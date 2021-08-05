@@ -5,27 +5,27 @@ from django.db import models
 class DBPrincess(models.Model):
     name = models.CharField(max_length=15)
     age = models.IntegerField(null=True)
-    country = models.CharField(max_length=20)
+    country = models.CharField(max_length=20, unique=True)
 
 class DBCountry(models.Model):
-    country = models.CharField(max_length=20)
+    country = models.ForeignKey(DBPrincess, to_field='country', on_delete=models.CASCADE)
     latitude = models.DecimalField(max_digits=8, decimal_places=5)
     longitude = models.DecimalField(max_digits=8, decimal_places=5)
 
 class DBQuoats(models.Model):
-    princess_id = models.CharField(max_length=15)
+    princess = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
     quoats = models.TextField()
 
 class DBScene(models.Model):
-    name = models.CharField(max_length=15)
+    scene= models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
     scenes = models.TextField()
 
 class DBSong(models.Model):
-    name = models.CharField(max_length=15)
+    song = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
     songs = models.TextField()
 
 class DBInfomation(models.Model):
-    name = models.CharField(max_length=15)
+    infoname = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
     info = models.TextField()
     personality = models.TextField()
     characteristic = models.TextField()
