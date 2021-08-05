@@ -13,7 +13,7 @@ class DBCountry(models.Model):
     longitude = models.DecimalField(max_digits=8, decimal_places=5)
 
 class DBQuoats(models.Model):
-    name = models.CharField(max_length=15)
+    princess_id = models.CharField(max_length=15)
     quoats = models.TextField()
 
 class DBScene(models.Model):
