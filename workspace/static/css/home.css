@@ -11345,3 +11345,9 @@ body {
 .main-icons{
     width:100%;
 }
+
+#map{
+    border: 1px solid black;
+    height: 30rem;
+    width: 60rem;
+}
