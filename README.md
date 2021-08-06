@@ -39,6 +39,6 @@
 |Layout 및 BootStrap| | | | | |0|0|0|
 |데이터베이스구축| | | | | | |0|0|
 |회원가입/로그인| | | | | | |
-|Google Maps API|
+|Google Maps API| | | | | | | |0|
 |게시판 기능 구현|
 |Merge 및 보완|

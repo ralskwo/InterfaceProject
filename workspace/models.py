@@ -27,21 +27,13 @@ class DBQuoats(models.Model):
         return f"princess={self.princess}, quoat_eng={self.quoat_eng}, quoat_kor={self.quoat_kor}"
 
 
-class DBScene(models.Model):
+class DBClip(models.Model):
     princess = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
-    scene_name = models.TextField(null=True)
-    scene_link = models.TextField(null=True)
+    clip_name = models.TextField(null=True)
+    clip_link = models.TextField(null=True)
+
     def __str__(self):
-        return f"princess={self.princess}, scene_name={self.scene_name}, scene_link={self.scene_link}"
-
-
-class DBSong(models.Model):
-    princess = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
-    song_name = models.TextField(null=True)
-    song_link = models.TextField(null=True)
-    def __str__(self):
-        return f"princess={self.princess}, song_name={self.song_name}, song_link={self.song_link}"
-
+        return f"princess={self.princess}, song_name={self.clip_name}, song_link={self.clip_link}"
 
 class DBInfomation(models.Model):
     princess = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
