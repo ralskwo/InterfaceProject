@@ -69,5 +69,49 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        {% load static %}
+        <script>
+        var latt = {{ lat }};
+        var lngg = {{ lng }};
+        {% autoescape off %}
+        var hname = {{ hname }};
+        {% endautoescape %}
+
+
+        var old;
+        var dom = document.getElementById("map");
+        if(dom) {
+         var map = new google.maps.Map(dom, {
+            center: { lat: 37.5096357, lng: 127.0555218},
+                        zoom: 2
+         });
+        var marker = new Array(14);
+        var  infowindow = new Array(14);
+        for(i=0; i<14; i++) {
+            var latlng = {lat: latt[i], lng: lngg[i]}
+            var contentString = hname[i];
+            var myinfowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            var image = {
+                  url: "{% static 'assets/img/Markers/Anna.png' %}",
+                  scaledSize: new google.maps.Size(25, 25)
+            };
+            var marker = new google.maps.Marker({
+                                    position: latlng,
+                                    map: map,
+                                    icon: image,
+                                    infowindow: myinfowindow
+            });
+
+            marker.addListener('click', function() {      // 클릭 이벤트 발생 시 지도와 마커 출력
+               if(old)
+                old.close();
+               this.infowindow.open(map, this);
+               old = this.infowindow;
+            });
+          }
+        }
+        </script>
     </body>
 </html>

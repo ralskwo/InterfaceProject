@@ -62,5 +62,3 @@ window.addEventListener('DOMContentLoaded', event => {
         document.getElementById("main").style.marginLeft = "0";
     };
 
-
-
