@@ -11,5 +11,4 @@ def princess(request) :
     return render(request, 'princess.html')
 
 
-
 # Create your views here.
