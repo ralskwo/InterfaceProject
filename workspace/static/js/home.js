@@ -63,11 +63,4 @@ window.addEventListener('DOMContentLoaded', event => {
     };
 
 
-    var dom = document.getElementById("map");
-    if (dom){
-        var map = new google.maps.Map(dom, {
-            	center: { lat: 37.5096357, lng: 127.0555218},
-            	zoom: 2
-          	});
 
-    }
