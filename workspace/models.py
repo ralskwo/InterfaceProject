@@ -17,15 +17,15 @@ class DBQuoats(models.Model):
     quoats = models.TextField()
 
 class DBScene(models.Model):
-    scene = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
+    princess = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
     scenes = models.TextField()
 
 class DBSong(models.Model):
-    song = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
+    princess = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
     songs = models.TextField()
 
 class DBInfomation(models.Model):
-    infoname = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
+    princess = models.ForeignKey(DBPrincess, on_delete=models.CASCADE)
     info = models.TextField()
     personality = models.TextField()
     characteristic = models.TextField()
