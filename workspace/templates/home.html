@@ -11,10 +11,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="icon" type="image/x-icon" href="/static/assets/disney.ico" />
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy81EbO46BRSnX1DOgg_F84bhsdbku2z4" ></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy81EbO46BRSnX1DOgg_F84bhsdbku2z4&callback=initMap"></script>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-        <script src="/static/js/location.js"></script>
         <link href="//db.onlinewebfonts.com/c/e6d70e2026165d37d01803d5b3f4489a?family=Waltograph" rel="stylesheet" type="text/css"/>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
@@ -26,8 +25,6 @@
         <!-- 상단 네비게이션 바 -->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div id="mySidebar" class="sidebar">
-<!--                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>-->
-
                 <a href="#">Home</a>
                 <a class="nav-item has-submenu">
                     <a class="nav-link" href="#"> Princesses  ∨</a>
@@ -70,7 +67,7 @@
         </nav>
         <!-- 1번 메인화면 이미지 -->
         <header class="first_main">
-            {% for name in princess_name %}
+            {% for name in princess_name1 %}
                 <a href="/workspace/princess?princess_name={{ name }}">
                     <img src="/static/assets/img/Main1/{{ name }}.png" width="20%" height="25%"></a>
             {% endfor %}
@@ -78,7 +75,7 @@
         <!-- 2번 메인화면 이미지-->
         <section class="about-section text-center" id="about">
             <a><img id= "main2_title" src="/static/assets/img/title_name.png"></a>
-            {% for name in princess_name %}
+            {% for name in princess_name2 %}
                 <a href="/workspace/princess?princess_name={{ name }}">
                     <img src="/static/assets/img/Main2/{{ name }}.png"></a>
             {% endfor %}
@@ -100,49 +97,30 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        {% load static %}
+
         <script>
-        var latt = {{ lat }};
-        var lngg = {{ lng }};
-        {% autoescape off %}
-        var hname = {{ hname }};
-        {% endautoescape %}
+            let map;
 
-
-        var old;
-        var dom = document.getElementById("map");
-        if(dom) {
-         var map = new google.maps.Map(dom, {
-            center: { lat: 37.5096357, lng: 127.0555218},
-                        zoom: 2
-         });
-        var marker = new Array(14);
-        var  infowindow = new Array(14);
-        for(i=0; i<14; i++) {
-            var latlng = {lat: latt[i], lng: lngg[i]}
-            var contentString = hname[i];
-            var myinfowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-            var image = {
-                  url: "{% static 'assets/img/Markers/Anna.png' %}",
-                  scaledSize: new google.maps.Size(25, 25)
-            };
-            var marker = new google.maps.Marker({
-                                    position: latlng,
-                                    map: map,
-                                    icon: image,
-                                    infowindow: myinfowindow
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: {lat: 37.5096357, lng: 127.0555218},
+                zoom: 2,
             });
 
-            marker.addListener('click', function() {      // 클릭 이벤트 발생 시 지도와 마커 출력
-               if(old)
-                old.close();
-               this.infowindow.open(map, this);
-               old = this.infowindow;
-            });
-          }
-        }
+            var markerlocations = {{princess_list}};
+
+            for(i = 0; i < markerlocations.length; i++) {
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(markerlocations[i][1], markerlocations[i][2]),
+                    map: map,
+                    icon: markerlocations[i][0]
+                });
+            }
+
+
+
+
+
         </script>
+
     </body>
 </html>
