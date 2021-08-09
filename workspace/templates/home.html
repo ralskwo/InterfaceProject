@@ -70,17 +70,17 @@
         </nav>
         <!-- 1번 메인화면 이미지 -->
         <header class="first_main">
-                {% for name in princess_name %}
-                    <a href="/workspace/princess?princess_id={{ name }}">
-                        <img src="/static/assets/img/Main1/{{ name }}.png" width="20%" height="25%"></a>
-                {% endfor %}
-
+            {% for name in princess_name %}
+                <a href="/workspace/princess?princess_name={{ name }}">
+                    <img src="/static/assets/img/Main1/{{ name }}.png" width="20%" height="25%"></a>
+            {% endfor %}
         </header>
         <!-- 2번 메인화면 이미지-->
         <section class="about-section text-center" id="about">
-            {% for nums,names in princess_names %}
-                <a href="/workspace/princess?princess_id={{ nums }}">
-                    <img src="/static/assets/img/Main2/{{ names }}.png"></a>
+            <a><img id= "main2_title" src="/static/assets/img/title_name.png"></a>
+            {% for name in princess_name %}
+                <a href="/workspace/princess?princess_name={{ name }}">
+                    <img src="/static/assets/img/Main2/{{ name }}.png"></a>
             {% endfor %}
         </section>
         <!-- Projects-->

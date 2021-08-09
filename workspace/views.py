@@ -17,18 +17,17 @@ def home(request) :
 
     full_names = [j for j in listdir("workspace/static/assets/img/Main2/")]
     print(full_names)
-    princess_names = enumerate([names[:names.index('.')] for names in full_names], start=1)
 
     context = {
-        'lat': lat, 'lng': lng, 'hname': hname, 'princess_name': princess_name, 'princess_names': princess_names,
+        'lat': lat, 'lng': lng, 'hname': hname, 'princess_name': princess_name,
     }
 
     return render(request, "home.html", context)
 
 
 def princess(request) :
-    princess_id = request.GET.get('princess_id')
-    context = {'princess_id': princess_id}
+    princess_name = request.GET.get('princess_name')
+    context = {'princess_name': princess_name}
     return render(request, "princess.html", context)
 
 def test(request):
