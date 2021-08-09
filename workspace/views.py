@@ -15,10 +15,6 @@ def home(request) :
 
     # 지도
 
-
-    print(lat, latitude)
-
-
     full_names = [j for j in listdir("workspace/static/assets/img/Main2/")]
     print(full_names)
     princess_names = enumerate([names[:names.index('.')] for names in full_names], start=1)
@@ -36,6 +32,17 @@ def princess(request) :
     return render(request, "princess.html", context)
 
 def test(request):
-    all = DBCountry.objects.all()
-    latitude = DBCountry.objects.all().values('latitude')
-    longitude = DBCountry.objects.all().values('longitude')
+    princess_list = DBPrincess.objects.all()
+    princess_dict = dict()
+
+    full_name = [i for i in listdir("workspace/static/assets/img/Main1/")]
+    princess_name = [name[:name.index('.')] for name in full_name]
+
+    for p in princess_list:
+        princess_dict[p.name] = {'lat': float(p.country.latitude), 'lng': float(p.country.longitude)}
+        print(p.name, princess_dict[p.name])
+
+    context = {"princess_dict": princess_dict}
+
+    return render(request, "test.html", context)
+
