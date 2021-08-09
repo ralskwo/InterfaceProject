@@ -44,13 +44,12 @@
             </div>
         </nav>
         <!-- 1번 메인화면 이미지 -->
-        <header class="masthead">
-            {% for alphabet in alph %}
-                <a href="/workspace/princess?princess_id={{ name }}">
-                    <img src="/static/assets/img/Main1/{{ name }}.png"></a>
-            {%endfor%}
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-            </div>
+        <header class="first_main">
+                {% for num, name in princess_name %}
+                    <a href="/workspace/princess?princess_id={{ num }}">
+                        <img src="/static/assets/img/Main1/{{ name }}.png" width="20%" height="25%"></a>
+                {% endfor %}
+
         </header>
         <!-- 2번 메인화면 이미지-->
         <section class="about-section text-center" id="about">
