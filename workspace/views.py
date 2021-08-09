@@ -9,9 +9,10 @@ def home(request) :
     lng = [10.35945, -4.33844, -149.42595, 106.88659, 10.35945, 1.88469, 1.88469, -64.77499, 9.28676, 9.28676, 1.88469, 54.09576, -90.07869, -76.74513];
     hname = ['Rapunzel', 'Merida', 'Moana', 'Mulan', 'SnowWhite', 'Belle', 'Cinderella', 'Ariel', 'Anna', 'Elsa', 'Aurora', 'Jasmine', 'Tiana', 'Pocahontas'];
 
+    # 메인 페이지
     full_name = [i for i in listdir("workspace/static/assets/img/Main1/")]
     print(full_name)
-    princess_name = enumerate([name[:name.index('.')] for name in full_name], start=1)
+    princess_name = [name[:name.index('.')] for name in full_name]
 
     context = {
         'lat': lat, 'lng': lng, 'hname': hname, 'princess_name': princess_name,
