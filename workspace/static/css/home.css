@@ -3990,6 +3990,16 @@ textarea.form-control-lg {
   display: block;
   transition: 0.3s;
 }
+.sidebar a.submenu{
+	list-style: none;
+	margin: 0;
+	padding-left: 1rem;
+	padding-right: 1rem;
+    color: #818181;
+    transition: 0.3s;
+    text-decoration: none;
+    font-size: 25px;
+}
 
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
