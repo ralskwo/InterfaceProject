@@ -11,8 +11,13 @@ def home(request) :
 
     # 메인 페이지
     full_name = [i for i in listdir("workspace/static/assets/img/Main1/")]
-    print(full_name)
     princess_name = [name[:name.index('.')] for name in full_name]
+
+    # 지도
+
+
+    print(lat, latitude)
+
 
     context = {
         'lat': lat, 'lng': lng, 'hname': hname, 'princess_name': princess_name,
@@ -26,3 +31,7 @@ def princess(request) :
     context = {'princess_id': princess_id}
     return render(request, "princess.html", context)
 
+def test(request):
+    all = DBCountry.objects.all()
+    latitude = DBCountry.objects.all().values('latitude')
+    longitude = DBCountry.objects.all().values('longitude')
