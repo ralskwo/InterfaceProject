@@ -13,7 +13,7 @@ def home(request) :
 
     # 지도
     princess_list = DBPrincess.objects.all()
-    princess_list = [["static/assets/img/Markers/" + p.name + ".png", float(p.country.latitude), float(p.country.longitude)] for p in princess_list]
+    princess_list = [["/static/assets/img/Markers/" + p.name + ".png", float(p.country.latitude), float(p.country.longitude)] for p in princess_list]
 
     context = {
         'princess_name1': princess_name1, 'princess_name2': princess_name2, 'princess_list': princess_list,

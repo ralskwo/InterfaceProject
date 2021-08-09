@@ -106,27 +106,19 @@
                     zoom: 2,
                 });
 
+                {% autoescape off %}
+                var markerlocations = {{princess_list}};
+                {% endautoescape %}
+
+                for(i = 0; i < markerlocations.length; i++) {
+                    console.log(markerlocations[i]);
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(markerlocations[i][1], markerlocations[i][2]),
+                        map: map,
+                        icon: markerlocations[i][0]
+                    });
+                }
             }
         </script>
-
-<!--        <script>-->
-<!--            let map;-->
-
-<!--            map = new google.maps.Map(document.getElementById("map"), {-->
-<!--                center: {lat: 37.5096357, lng: 127.0555218},-->
-<!--                zoom: 2,-->
-<!--            });-->
-
-<!--            var markerlocations = [{{princess_list}}];-->
-
-<!--            for(i = 0; i < markerlocations.length; i++) {-->
-<!--                var marker = new google.maps.Marker({-->
-<!--                    position: new google.maps.LatLng(markerlocations[i][1], markerlocations[i][2]),-->
-<!--                    map: map,-->
-<!--                    icon: markerlocations[i][0]-->
-<!--                });-->
-<!--            }-->
-<!--        </script>-->
-
     </body>
 </html>
