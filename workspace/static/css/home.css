@@ -11249,10 +11249,17 @@ body {
     font-size: 1.25rem;
   }
 }
+#main2_title {
+  margin:auto;
+  text-align: center;
+  padding: 50px;
+  width: 100%;
+  margin-bottom: 10px;
+}
 
 .about-section {
   padding-top: 3rem;
-  width: 1800px;
+  width: 80%;
   height: 100%;
   min-height: 35rem;
   padding: 15rem 0;
