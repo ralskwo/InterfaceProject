@@ -45,6 +45,10 @@
         </nav>
         <!-- 1번 메인화면 이미지 -->
         <header class="masthead">
+            {% for alphabet in alph %}
+                <a href="/workspace/princess?princess_id={{ name }}">
+                    <img src="/static/assets/img/Main1/{{ name }}.png"></a>
+            {%endfor%}
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
             </div>
         </header>
