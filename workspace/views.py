@@ -13,8 +13,12 @@ def home(request) :
     print(full_name)
     princess_name = enumerate([name[:name.index('.')] for name in full_name], start=1)
 
+    full_names = [j for j in listdir("workspace/static/assets/img/Main2/")]
+    print(full_names)
+    princess_names = enumerate([names[:names.index('.')] for names in full_names], start=1)
+
     context = {
-        'lat': lat, 'lng': lng, 'hname': hname, 'princess_name': princess_name,
+        'lat': lat, 'lng': lng, 'hname': hname, 'princess_name': princess_name, 'princess_names': princess_names,
     }
 
     return render(request, "home.html", context)
