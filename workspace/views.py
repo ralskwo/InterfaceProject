@@ -16,4 +16,12 @@ def home(request) :
 def princess(request) :
     return render(request, "princess.html")
 
-# Create your views here.
+def Mainimg(request):
+    context = {'alph': [chr(i) for i in range((ord('A'),ord('T')+1))]}
+    return render(request, 'home.html', context)
+
+def individual_character(request):
+    princess_id = request.GET.get('princess_id')
+    context = {'princess_id': princess_id}
+    return render(request, 'princess.html', context)
+
