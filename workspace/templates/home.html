@@ -77,7 +77,10 @@
         </header>
         <!-- 2번 메인화면 이미지-->
         <section class="about-section text-center" id="about">
-            <img class = "main-icons" src="/static/assets/img/PrincessNetwork_Main2.png">
+            {% for nums,names in princess_names %}
+                <a href="/workspace/princess?princess_id={{ nums }}">
+                    <img src="/static/assets/img/Main2/{{ names }}.png"></a>
+            {% endfor %}
         </section>
         <!-- Projects-->
         <section class="projects-section bg-light" id="projects">
