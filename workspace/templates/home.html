@@ -116,7 +116,12 @@
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(markerlocations[i][1], markerlocations[i][2]),
                         map: map,
-                        icon: markerlocations[i][0],
+                        icon: {
+                            url: markerlocations[i][0],
+                            size: new google.maps.Size(70, 80),
+                            scaledSize: new google.maps.Size(70, 80),
+                            anchor: new google.maps.Point(0, 80)
+                        }
 
                     });
                 }
