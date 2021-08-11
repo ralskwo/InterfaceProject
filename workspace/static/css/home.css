@@ -3981,9 +3981,17 @@ textarea.form-control-lg {
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
   color = #ffffff;
 }
-
+.dropdown-btn {
+  background: #111;
+  border: None
+}
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 20px;
+}
 /* The sidebar links */
-.sidebar a {
+.sidebar a, .dropdown-btn {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -3991,7 +3999,7 @@ textarea.form-control-lg {
   display: block;
   transition: 0.3s;
 }
-.sidebar a.submenu{
+.sidebar a.dropdown-btn {
 	list-style: none;
 	margin: 0;
 	padding-left: 1rem;
@@ -4001,9 +4009,20 @@ textarea.form-control-lg {
     text-decoration: none;
     font-size: 25px;
 }
-
+.dropdown-btn.active {
+  background-color: green;
+  color: white;
+}
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 /* When you mouse over the navigation links, change their color */
-.sidebar a:hover {
+.sidebar a:hover, .dropdown-btn:hover {
   color: #fff;
 }
 
@@ -4062,8 +4081,6 @@ textarea.form-control-lg {
     transition: none;
   }
 }
-.nav-link:hover, .nav-link:focus {
-  color: #50817e;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -4108,7 +4125,7 @@ textarea.form-control-lg {
   border-radius: 0.25rem;
 }
 .nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .show > .nav-link.active {
   color: #fff;
   background-color: #64a19d;
 }
@@ -11263,7 +11280,6 @@ body {
   width: 80%;
   height: 100%;
   min-height: 35rem;
-  padding: 15rem 0;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;

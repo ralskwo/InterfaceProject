@@ -11,6 +11,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="icon" type="image/x-icon" href="/static/assets/disney.ico" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -27,15 +28,16 @@
             <div id="mySidebar" class="sidebar">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
                 <a href="#">Home</a>
-                <a class="nav-item has-submenu">
-                    <a class="nav-link" href="#"> Princesses  ∨</a>
-                    <ul class="submenu collapse" style="font-size:25px">
-                        {% for name in princess_name1 %}
-                        <li><a href="/workspace/princess?princess_name={{ name }}">{{ name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </a>
+                <button class="dropdown-btn">Princesses
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    {% for name in princess_name1 %}
+                    <a style="font-size:20px" href="/workspace/princess?princess_name={{ name }}">{{ name }}</a>
+                    {% endfor %}
+                </div>
                 <a href="#">Account</a>
+                <a href="#">게시판</a>
             </div>
             <div id="main">
                 <button class="openbtn" onclick="openNav()">☰</button>
