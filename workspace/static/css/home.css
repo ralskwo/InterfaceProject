@@ -3979,6 +3979,7 @@ textarea.form-control-lg {
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  color = #ffffff;
 }
 
 /* The sidebar links */
@@ -4003,7 +4004,7 @@ textarea.form-control-lg {
 
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: #fff;
 }
 
 /* Position and style the close button (top right corner) */
@@ -4026,7 +4027,7 @@ textarea.form-control-lg {
 }
 
 .openbtn:hover {
-  background-color: #444;
+  background-color: #fff;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */

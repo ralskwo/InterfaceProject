@@ -30,23 +30,12 @@
                 <a class="nav-item has-submenu">
                     <a class="nav-link" href="#"> Princesses  ∨</a>
                     <ul class="submenu collapse" style="font-size:25px">
-                        <li><a class="nav-link" href="#"> Rapunzel </a></li>
-                        <li><a class="nav-link" href="#"> Merida </a></li>
-                        <li><a class="nav-link" href="#"> Moana</a></li>
-                        <li><a class="nav-link" href="#"> Mulan</a></li>
-                        <li><a class="nav-link" href="#"> SnowWhite</a></li>
-                        <li><a class="nav-link" href="#"> Belle</a></li>
-                        <li><a class="nav-link" href="#"> Cinderella</a></li>
-                        <li><a class="nav-link" href="#"> Ariel</a></li>
-                        <li><a class="nav-link" href="#"> Anna</a></li>
-                        <li><a class="nav-link" href="#"> Elsa</a></li>
-                        <li><a class="nav-link" href="#"> Aurora</a></li>
-                        <li><a class="nav-link" href="#"> Jasmine</a></li>
-                        <li><a class="nav-link" href="#"> Tiana</a></li>
-                        <li><a class="nav-link" href="#"> Pocahontas</a></li>
+                        {% for name in princess_name1 %}
+                        <li><a href="/workspace/princess?princess_name={{ name }}">{{ name }}</a></li>
+                        {% endfor %}
                     </ul>
                 </a>
-                <a href="#">Board</a>
+                <a href="#">Account</a>
             </div>
             <div id="main">
                 <button class="openbtn" onclick="openNav()">☰</button>
@@ -62,6 +51,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#about">about</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
                     </ul>
                 </div>
             </div>
