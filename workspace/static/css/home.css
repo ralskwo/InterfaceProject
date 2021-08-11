@@ -4009,7 +4009,7 @@ textarea.form-control-lg {
     text-decoration: none;
     font-size: 25px;
 }
-.active {
+.dropdown-btn.active {
   background-color: green;
   color: white;
 }
@@ -4125,7 +4125,7 @@ textarea.form-control-lg {
   border-radius: 0.25rem;
 }
 .nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .show > .nav-link.active {
   color: #fff;
   background-color: #64a19d;
 }
