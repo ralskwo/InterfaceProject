@@ -61,15 +61,36 @@
             top: 0px;
             z-index: 2;
         }
-
+        /* I changed only here*/
         .choice {
             width: 200px;
             text-align: center;
             padding:30px;
-            border: solid 2px white;
             margin: auto;
+            margin-top: 20px;
             position: relative;
+            background-color: rgba( 255, 255, 255, 0.5 );
         }
+
+        .choice a {
+            color: black;
+        }
+
+        .button_grey{
+            border: 2px solid white;
+            background-color: transparent;
+            padding: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            transition-duration: 0.2s;
+            border-radius: 15px;
+            cursor: pointer;
+            width: 90%;
+        }
+        .button_grey:hover {background-color: #e7e7e7;}
 
         #sky-rect {
             height: 100%;
@@ -109,7 +130,6 @@
             position: absolute;
             bottom: 0px;
         }
-
         .stags {
             animation-name: stags;
             animation-delay: 0.3s;
@@ -4691,15 +4711,15 @@
             <section class="loginpage">
                 <div class="boxing">
                     {% if user.is_authenticated %}
-                        <a href="/accounts/logout">로그아웃</a>
+                        <button class="button_grey"><a href="/accounts/logout">로그아웃</a></button>
                         <br>
                         {{ user.username }} 님이 로그인 중
                     {% else %}
-                        <a href="/accounts/signup">회원가입</a>
+                        <button class="button_grey"><a href="/accounts/signup">회원가입</a></button>
                         <br>
-                        <a href="/accounts/login">이메일 로그인</a>
+                        <button class="button_grey"><a href="/accounts/login">이메일 로그인</a></button>
                         <br>
-                        <a href="{% provider_login_url 'google' %}">구글 로그인</a>
+                        <button class="button_grey"><a href="{% provider_login_url 'google' %}">구글 로그인</a></button>
                     {% endif %}
                 </div>
             </section>

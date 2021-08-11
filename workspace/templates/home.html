@@ -91,27 +91,39 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy81EbO46BRSnX1DOgg_F84bhsdbku2z4&callback=initMap"></script>
         <script>
             function initMap() {
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 37.5096357, lng: 127.0555218},
                     zoom: 2,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDefaultUI: true,
+                    zoomControl: true
                 });
 
                 {% autoescape off %}
                 var markerlocations = {{princess_list}};
                 {% endautoescape %}
-                var old;
 
+                var oms = new OverlappingMarkerSpiderfier(map, {
+                    markersWontMove: true,
+                    markersWontHide: true,
+                    keepSpiderfied: true,
+                    circleSpiralSwitchover: 17
+                });
+
+
+                var old, marker;
                 for(i = 0; i < markerlocations.length; i++) {
-                    console.log(markerlocations[i]);
+                    /*console.log(markerlocations[i]);*/
                     var address = "이름 : " + '<a href="/workspace/princess/?princess_name='+markerlocations[i][3]+'">'+markerlocations[i][3]+'</a>' + "<br>나이 : " + markerlocations[i][4] + "<br>국적 : " + markerlocations[i][5];
                     var infowindow = new google.maps.InfoWindow({
                             content: address
                     });
 
-                    var marker = new google.maps.Marker({
+                    marker = new google.maps.Marker({
                         position: new google.maps.LatLng(markerlocations[i][1], markerlocations[i][2]),
                         map: map,
                         icon: {
@@ -122,8 +134,7 @@
                         },
                         infowindow: infowindow
                     });
-
-
+                    oms.addMarker(marker);
 
                     marker.addListener('click', function() {      // 클릭 이벤트 발생 시 지도와 마커 출력
 			            if(old)
@@ -131,7 +142,6 @@
 			            this.infowindow.open(map, this);
 			            old = this.infowindow;
                     });
-
                 }
             }
         </script>
