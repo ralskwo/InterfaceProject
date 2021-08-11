@@ -30,6 +30,13 @@ def home(request) :
 def princess(request) :
     princess_name = request.GET.get('princess_name')
     context = {'princess_name': princess_name}
+
+    full_name_main1 = [i for i in listdir("workspace/static/assets/img/Main1/")]
+    princess_name1 = [name[:name.index('.')] for name in full_name_main1]
+
+    context = {
+        'princess_name1': princess_name1,
+    }
     return render(request, "princess.html", context)
 
 def test(request):
