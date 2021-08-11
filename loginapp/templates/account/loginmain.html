@@ -1,0 +1,26 @@
+<!--// 기존에 생성되있는 loginmain.html //-->
+{% extends "account/base.html" %}
+
+{% block content %}
+{% load socialaccount %}
+    {% providers_media_js %}
+
+        <section class="loginpage">
+            <div calss="boxing">
+                {% if user.is_authenticated %}
+                <a href="/accounts/logout">로그아웃</a>
+                <br>
+                {{user.username}} 님이 로그인 중
+                {% else %}
+                <a href="/accounts/signup">회원가입</a>
+                <br>
+                <a href="/accounts/login">이메일 로그인</a>
+                <br>
+                <a href="{% provider_login_url 'google' %}">구글 로그인</a>
+                {% endif %}
+            </div>
+        </section>
+
+{% endblock %}
+
+
