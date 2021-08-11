@@ -556,7 +556,9 @@ progress {
 .blockquote > :last-child {
   margin-bottom: 0;
 }
-
+.footer{
+  width:100%;
+}
 .blockquote-footer {
   margin-top: -1rem;
   margin-bottom: 1rem;
@@ -7435,7 +7437,7 @@ textarea.form-control-lg {
 }
 
 .bg-dark {
-  background-color: #212529 !important;
+  background:linear-gradient(to bottom, midnightblue, purple, hotpink);
 }
 
 .bg-body {
