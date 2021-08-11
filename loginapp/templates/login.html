@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Disney Princess Network</title>
+</head>
+<body>
+    {% load socialaccount %}
+    {% providers_media_js %}
+
+    <h1>It is login page</h1>
+
+
+    {% if user.is_authenticated %}
+    <a href="/accounts/logout">로그아웃</a>
+    <br>
+    {{user.username}} 님이 로그인 중
+    {% else %}
+    <a href="/accounts/signup">회원가입</a>
+    <br>
+    <a href="/accounts/login">이메일 로그인</a>
+    <br>
+    <a href="{% provider_login_url 'google' %}">구글 로그인</a>
+    로그인 해야댐
+    {% endif %}
+</body>
+</html>
