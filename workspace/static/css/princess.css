@@ -5761,8 +5761,8 @@ textarea.form-control-lg {
   text-align: center;
 }
 .carousel-inner img{
-  height: 450px;
-  width: auto;
+  height: 100%;
+  width: 100%;
   display:block
 }
 .carousel-item {

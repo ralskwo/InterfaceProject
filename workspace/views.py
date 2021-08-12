@@ -33,8 +33,8 @@ def princess(request) :
 
     root_img_folder = "workspace/static/assets/img"
     for rt, _, files in walk(root_img_folder):
-        folder_name = rt[rt.index('img') + 4:].capitalize()
-        if folder_name == princess_name:
+        folder_name = rt[rt.index('img') + 4:].lower()
+        if folder_name == princess_name.lower():
             img_list = files
             break
 
@@ -53,7 +53,6 @@ def princess(request) :
     for i in range(len(info_list)):
         if info_list[i][0] == princess_name:
             specific_info = info_list[i]
-
 
     context = {
         'princess_name1' : princess_name1,
