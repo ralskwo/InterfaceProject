@@ -42,12 +42,14 @@ def princess(request) :
                   info.personality,
                   info.characteristic] for info in princess_info]
 
-
+    specific_info = []
     for i in range(len(info_list)):
         if info_list[i][0] == princess_name:
             specific_info = info_list[i][0]
+            break
 
 
+    file_list = []
     root_img_folder = "workspace/static/assets/img"
     for rt, _, files in walk(root_img_folder):
         folder_name = rt[rt.index('img') + 4:]
@@ -79,8 +81,3 @@ def test(request):
     context = {"princess_dict": princess_dict, "princess_name": princess_name}
 
     return render(request, "test.html", context)
-
-root_img_folder = "workspace/static/assets/img"
-for rt, _, files in walk(root_img_folder):
-    print(rt[rt.index('img') + 4:], files)
-    print()

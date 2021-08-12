@@ -85,13 +85,9 @@
                                 </ul>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                      <img src="/static/assets/img/anna/Anna2.jfif" alt="..." width="600" height="400">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="/static/assets/img/anna/Anna3.jfif" alt="..." width="600" height="400">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="/static/assets/img/anna/Anna4.jfif" alt="..." width="600" height="400">
+                                        {% for i in range(2, 5) %}
+                                            <img src="/static/assets/img/anna/Anna{{i}}.jpeg" alt="..." width="600" height="400">
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#myCarousel">
