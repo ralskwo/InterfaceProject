@@ -71,6 +71,8 @@
             position: relative;
             color: midnightblue;
             background-color: rgba( 255, 255, 255, 0.5 );
+            z-index: 25;
+            margin: auto;
         }
 
         .button_grey{
@@ -88,7 +90,9 @@
             color: midnightblue;
             width: 90%;
         }
-        .button_grey:hover {background-color: #e7e7e7;}
+        .button_grey:hover {
+            background-color: #e7e7e7;
+        }
 
         #sky-rect {
             height: 100%;
@@ -4701,30 +4705,30 @@
                   </g>
             </svg>
     </div>
-    <div class="choice">
-        {% extends "account/base.html" %}
+</div>
+<div class="choice">
+    {% extends "account/base.html" %}
 
-        {% load i18n %}
+    {% load i18n %}
 
-        {% block head_title %}{% trans "Sign Out" %}{% endblock %}
+    {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
-        {% block content %}
-            <h1>{% trans "Sign Out" %}</h1>
+    {% block content %}
+        <h1>{% trans "Sign Out" %}</h1>
 
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
+        <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
-            <form method="post" action="{% url 'account_logout' %}">
-                {% csrf_token %}
-                {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                {% endif %}
-                <button class="button_grey" type="submit">{% trans 'Sign Out' %}</button>
-            </form>
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <button class="button_grey" type="submit">{% trans 'Sign Out' %}</button>
+        </form>
 
 
-        {% endblock %}
+    {% endblock %}
 
-    </div>
 </div>
 
 <!-- noise overlay -->

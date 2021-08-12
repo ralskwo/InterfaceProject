@@ -69,6 +69,8 @@
             margin: auto;
             position: relative;
             background-color: rgba( 255, 255, 255, 0.5 );
+            z-index: 25;
+            margin: auto;
         }
 
         .choice a {
@@ -89,7 +91,9 @@
             cursor: pointer;
             width: 90%;
         }
-        .button_grey:hover {background-color: #e7e7e7;}
+        .button_grey:hover {
+            background-color: #e7e7e7;
+        }
 
         #sky-rect {
             height: 100%;
@@ -4701,31 +4705,31 @@
                   </g>
             </svg>
     </div>
-    <div class="choice">
-        {% extends "account/base.html" %}
+</div>
+<div class="choice">
+    {% extends "account/base.html" %}
 
-        {% load i18n %}
+    {% load i18n %}
 
-        {% block head_title %}{% trans "Signup" %}{% endblock %}
+    {% block head_title %}{% trans "Signup" %}{% endblock %}
 
-        {% block content %}
-            <h1>{% trans "Sign Up" %}</h1>
+    {% block content %}
+        <h1>{% trans "Sign Up" %}</h1>
 
-            <p>{% blocktrans %}Already have an account? Then please
-                <a style="color:white;" href="{{ login_url }}">sign in</a>
-                .{% endblocktrans %}</p>
+        <p>{% blocktrans %}Already have an account? Then please
+            <a style="color:white;" href="{{ login_url }}">sign in</a>
+            .{% endblocktrans %}</p>
 
-            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                {% endif %}
-            </form>
-            <button class="button_grey" type="submit">{% trans "Sign Up" %} &raquo;</button>
+        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+        </form>
+        <button class="button_grey" type="submit">{% trans "Sign Up" %} &raquo;</button>
 
-        {% endblock %}
-    </div>
+    {% endblock %}
 </div>
 
 <!-- noise overlay -->

@@ -70,6 +70,8 @@
             margin-top: 20px;
             position: relative;
             background-color: rgba( 255, 255, 255, 0.5 );
+            z-index: 25;
+            margin: auto;
         }
 
         .choice a {
@@ -90,7 +92,9 @@
             cursor: pointer;
             width: 90%;
         }
-        .button_grey:hover {background-color: #e7e7e7;}
+        .button_grey:hover {
+            background-color: #e7e7e7;
+        }
 
         #sky-rect {
             height: 100%;
@@ -4702,29 +4706,29 @@
                   </g>
             </svg>
     </div>
-    <div class="choice">
-        {% extends "account/base.html" %}
+</div>
+<div class="choice">
+    {% extends "account/base.html" %}
 
-        {% block content %}
-            {% load socialaccount %}
-            {% providers_media_js %}
-            <section class="loginpage">
-                <div class="boxing">
-                    {% if user.is_authenticated %}
-                        <button class="button_grey"><a href="/accounts/logout">로그아웃</a></button>
-                        <br>
-                        {{ user.username }} 님이 로그인 중
-                    {% else %}
-                        <button class="button_grey"><a href="/accounts/signup">회원가입</a></button>
-                        <br>
-                        <button class="button_grey"><a href="/accounts/login">이메일 로그인</a></button>
-                        <br>
-                        <button class="button_grey"><a href="{% provider_login_url 'google' %}">구글 로그인</a></button>
-                    {% endif %}
-                </div>
-            </section>
-        {% endblock %}
-    </div>
+    {% block content %}
+        {% load socialaccount %}
+        {% providers_media_js %}
+        <section class="loginpage">
+            <div class="boxing">
+                {% if user.is_authenticated %}
+                    <button class="button_grey"><a href="/accounts/logout">로그아웃</a></button>
+                    <br>
+                    {{ user.username }} 님이 로그인 중
+                {% else %}
+                    <button class="button_grey"><a href="/accounts/signup">회원가입</a></button>
+                    <br>
+                    <button class="button_grey"><a href="/accounts/login">이메일 로그인</a></button>
+                    <br>
+                    <button class="button_grey"><a href="{% provider_login_url 'google' %}">구글 로그인</a></button>
+                {% endif %}
+            </div>
+        </section>
+    {% endblock %}
 </div>
 
 <!-- noise overlay -->
