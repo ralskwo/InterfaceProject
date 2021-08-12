@@ -145,4 +145,4 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 2
-LOGIN_REDIRECT_URL = 'http://localhost:8000/workspace/home/'
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/workspace/home/'
