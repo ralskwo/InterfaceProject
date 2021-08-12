@@ -4,7 +4,6 @@ from django.template import loader
 from .models import DBPrincess, DBInfomation
 from os import listdir, walk
 
-
 def home(request) :
     # 메인 페이지
     full_name_main1 = [i for i in listdir("workspace/static/assets/img/Main1/")]
@@ -30,6 +29,14 @@ def home(request) :
 
 def princess(request) :
     princess_name = request.GET.get('princess_name')
+    img_list = []
+
+    root_img_folder = "workspace/static/assets/img"
+    for rt, _, files in walk(root_img_folder):
+        folder_name = rt[rt.index('img') + 4:]
+        if folder_name == princess_name:
+            img_list = files
+            break
 
     full_name_main1 = [i for i in listdir("workspace/static/assets/img/Main1/")]
     princess_name1 = [name[:name.index('.')] for name in full_name_main1]
@@ -45,22 +52,17 @@ def princess(request) :
     specific_info = []
     for i in range(len(info_list)):
         if info_list[i][0] == princess_name:
-            specific_info = info_list[i][0]
-            break
-
-    root_img_folder = "workspace/static/assets/img"
-    for rt, _, files in walk(root_img_folder):
-        folder_name = rt[rt.index('img') + 4:]
-        if folder_name.capitalize() == princess_name:
-            file_list = files
-            break
+            specific_info = info_list[i]
 
 
     context = {
-        'princess_name1': princess_name1,
+        'princess_name1' : princess_name1,
+        'img_list' : list(enumerate(img_list, start=1)),
+        'folder_name' : folder_name,
         'info_list': info_list,
         'specific_info': specific_info,
     }
+
     return render(request, "princess.html", context)
 
 

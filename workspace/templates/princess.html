@@ -82,16 +82,16 @@
                         <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
                             <div id="myCarousel" class="carousel-slide">
                                 <ul class="carousel-indicators">
-                                    <li class="item1 active"></li>
-                                    <li class="item2"></li>
-                                    <li class="item3"></li>
+                                    {% for num, img in img_list %}
+                                    <li class="item{{num}} {% if forloop.counter == 1 %}active{% endif %}"></li>
+                                    {% endfor %}
                                 </ul>
                                 <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        {% for i in range(2, 5) %}
-                                            <img src="/static/assets/img/anna/Anna{{i}}.jpeg" alt="..." width="600" height="400">
-                                        {% endfor %}
+                                    {% for num, img in img_list %}
+                                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                      <img src="/static/assets/img/{{folder_name}}/{{img}}" alt="..." width="600" height="400">
                                     </div>
+                                    {% endfor %}
                                 </div>
                                 <a class="carousel-control-prev" href="#myCarousel">
                                     <span class="carousel-control-prev-icon"></span>
@@ -235,6 +235,7 @@
         Core theme JS-->
         <script src="/static/js/princess.js"></script>
         <script>
+
             $(document).ready(function(){
                 // Activate Carousel
                 $("#myCarousel").carousel({
@@ -244,16 +245,22 @@
                     keyboard: true
                 });
 
-                // Enable Carousel Indicators
-                $(".item1").click(function(){
-                $("#myCarousel").carousel(0);
-                });
-                $(".item2").click(function(){
-                $("#myCarousel").carousel(1);
-                });
-                $(".item3").click(function(){
-                $("#myCarousel").carousel(2);
-                });
+                {% autoescape off %}
+                var imglist = {{img_list}};
+                {% endautoescape %}
+
+                console.log(imglist.length)
+
+
+                for(let i=1; i < imglist.length+1; i++) {
+
+                            $(".item"+i.toString()).click(function(){
+                            $("#myCarousel").carousel(i-1);
+                            });
+                }
+
+
+
 
                 // Enable Carousel Controls
                 $(".carousel-control-prev").click(function(){
