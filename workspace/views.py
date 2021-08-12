@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from .models import DBPrincess
-from os import listdir
+from os import listdir, walk
+import operator
 
 def home(request) :
     # 메인 페이지
@@ -29,14 +30,25 @@ def home(request) :
 
 def princess(request) :
     princess_name = request.GET.get('princess_name')
-    context = {'princess_name': princess_name}
+    img_list = []
+
+    root_img_folder = "workspace/static/assets/img"
+    for rt, _, files in walk(root_img_folder):
+        folder_name = rt[rt.index('img') + 4:]
+        if folder_name == princess_name:
+            img_list = files
+            break
+
+    print(folder_name)
+    print(img_list)
 
     full_name_main1 = [i for i in listdir("workspace/static/assets/img/Main1/")]
     princess_name1 = [name[:name.index('.')] for name in full_name_main1]
 
     context = {
-        'princess_name1': princess_name1,
+        'princess_name1' : princess_name1, 'img_list' : list(enumerate(img_list, start=1)), 'folder_name' : folder_name,
     }
+
     return render(request, "princess.html", context)
 
 def test(request):

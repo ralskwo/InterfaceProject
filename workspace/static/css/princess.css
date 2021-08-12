@@ -5755,9 +5755,13 @@ textarea.form-control-lg {
 }
 
 .carousel-item,
-.carousel-inner,
-.carousel-inner img {
+.carousel-inner {
   height: 450px;
+  text-align: center;
+  width: auto;
+}
+.carousel-inner img{
+  height: auto;
   width: auto;
 }
 .carousel-item {
