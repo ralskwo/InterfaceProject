@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
-                            <div id="myCarousel" class="carousel slide">
+                            <div id="myCarousel" class="carousel-slide">
                                 <ul class="carousel-indicators">
                                     <li class="item1 active"></li>
                                     <li class="item2"></li>
@@ -238,7 +238,12 @@
         <script>
             $(document).ready(function(){
                 // Activate Carousel
-                $("#myCarousel").carousel();
+                $("#myCarousel").carousel({
+                    interval: 1700,
+                    pause: "hover",
+                    wrap: true,
+                    keyboard: true
+                });
 
                 // Enable Carousel Indicators
                 $(".item1").click(function(){
