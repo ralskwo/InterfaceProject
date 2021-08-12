@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from .models import DBPrincess, DBInfomation
-from os import listdir
+from os import listdir, walk
+
 
 def home(request) :
     # 메인 페이지
@@ -28,7 +29,7 @@ def home(request) :
 
 
 def princess(request) :
-    #princess_name = request.GET.get('princess_name')
+    princess_name = request.GET.get('princess_name')
 
     full_name_main1 = [i for i in listdir("workspace/static/assets/img/Main1/")]
     princess_name1 = [name[:name.index('.')] for name in full_name_main1]
@@ -41,11 +42,28 @@ def princess(request) :
                   info.personality,
                   info.characteristic] for info in princess_info]
 
+
+    for i in range(len(info_list)):
+        if info_list[i][0] == princess_name:
+            specific_info = info_list[i][0]
+
+
+    root_img_folder = "workspace/static/assets/img"
+    for rt, _, files in walk(root_img_folder):
+        folder_name = rt[rt.index('img') + 4:]
+        if folder_name.capitalize() == princess_name:
+            file_list = files
+            break
+
+
     context = {
         'princess_name1': princess_name1,
         'info_list': info_list,
+        'specific_info': specific_info,
+        'file_list': file_list,
     }
     return render(request, "princess.html", context)
+
 
 def test(request):
     princess_list = DBPrincess.objects.all()
@@ -61,3 +79,8 @@ def test(request):
     context = {"princess_dict": princess_dict, "princess_name": princess_name}
 
     return render(request, "test.html", context)
+
+root_img_folder = "workspace/static/assets/img"
+for rt, _, files in walk(root_img_folder):
+    print(rt[rt.index('img') + 4:], files)
+    print()
