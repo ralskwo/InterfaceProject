@@ -44,33 +44,36 @@
             </div>
 
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top" style="font-family:Waltograph; font-size:50px;">Disney Princess Network</a>
+                <a class="navbar-brand" href="/workspace/home/" style="font-family:Waltograph; font-size:50px;">Disney Princess Network</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">about</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Top">Top</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Character</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Map</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">Account</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- 1번 메인화면 이미지 -->
-        <header class="first_main">
+        <header class="first_main" id="Top">
             {% for name in princess_name1 %}
                 <a href="/workspace/princess?princess_name={{ name }}">
-                    <img src="/static/assets/img/Main1/{{ name }}.png" width="20%" height="25%"></a>
+                    <img src="/static/assets/img/Main1/{{ name }}.png" width="17%" height="25%"></a>
             {% endfor %}
         </header>
         <!-- 2번 메인화면 이미지-->
         <section class="about-section text-center" id="about">
-            <a><img id= "main2_title" src="/static/assets/img/title_name.png"></a>
+            <div class="main2-title">
+                <img id="main2-title" src="/static/assets/img/title_name.png">
+            </div>
             {% for name in princess_name2 %}
                 <a href="/workspace/princess?princess_name={{ name }}">
-                    <img src="/static/assets/img/Main2/{{ name }}.png"></a>
+                    <img id="main2-img" src="/static/assets/img/Main2/{{ name }}.png"></a>
             {% endfor %}
         </section>
         <!-- Projects-->

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
-from .models import DBPrincess, DBInfomation
+from .models import DBPrincess, DBInfomation, DBClip
 from os import listdir, walk
 
 def home(request) :
@@ -31,6 +31,7 @@ def princess(request) :
     princess_name = request.GET.get('princess_name')
     img_list = []
 
+    # 이미지 Carousel
     root_img_folder = "workspace/static/assets/img"
     for rt, _, files in walk(root_img_folder):
         folder_name = rt[rt.index('img') + 4:].lower()
@@ -38,9 +39,11 @@ def princess(request) :
             img_list = files
             break
 
+    # Side bar 페이지 이동 링크
     full_name_main1 = [i for i in listdir("workspace/static/assets/img/Main1/")]
     princess_name1 = [name[:name.index('.')] for name in full_name_main1]
 
+    # 공주 정보 나열
     princess_info = DBInfomation.objects.all()
     info_list = [[info.princess.name,
                   str(info.princess.age),
@@ -54,12 +57,26 @@ def princess(request) :
         if info_list[i][0] == princess_name:
             specific_info = info_list[i]
 
+    # 영상 클립
+    princess_clip = DBClip.objects.all()
+    clip_data = [[clip.princess.name,
+                  clip.clip_name,
+                  clip.clip_link] for clip in princess_clip]
+    clip_title = []
+    clip_link = []
+    for name, title, link in clip_data :
+        if name.lower() == princess_name.lower():
+            clip_title.append(title)
+            clip_link.append(link)
+
     context = {
         'princess_name1' : princess_name1,
         'img_list' : list(enumerate(img_list, start=1)),
         'folder_name' : folder_name,
         'info_list': info_list,
         'specific_info': specific_info,
+        'clip_title': clip_title,
+        'clip_link': clip_link,
     }
 
     return render(request, "princess.html", context)
