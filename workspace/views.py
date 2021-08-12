@@ -54,7 +54,6 @@ def princess(request) :
         if info_list[i][0] == princess_name:
             specific_info = info_list[i]
 
-
     context = {
         'princess_name1' : princess_name1,
         'img_list' : list(enumerate(img_list, start=1)),
