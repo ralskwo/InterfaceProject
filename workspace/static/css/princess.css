@@ -28,7 +28,7 @@ b3f4489a.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/
   --bs-primary: #0d6efd;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
-  --bs-info: #0dcaf0;
+  --bs-info: #fbf5f4;;
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
@@ -5756,7 +5756,7 @@ textarea.form-control-lg {
 
 .carousel-item,
 .carousel-inner {
-  height: 450px;
+  height: 100%;
   width: auto;
   text-align: center;
 }
@@ -5769,6 +5769,9 @@ textarea.form-control-lg {
   text-align: center;
 }
 #myCarousel{
+  height: 450px;
+}
+#myCarousel2{
   height: 450px;
 }
 
@@ -6946,6 +6949,9 @@ textarea.form-control-lg {
 }
 
 .py-5 {
+  background-color: #fbf5f4;
+  text-align: center;
+  margin: 0 auto;
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
 }
@@ -7238,7 +7244,7 @@ textarea.form-control-lg {
 }
 
 .bg-info {
-  background-color: #0dcaf0 !important;
+  background-color: #fbf5f4 !important;
 }
 
 .bg-warning {
@@ -10691,4 +10697,54 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 15rem;
+}
+
+#sentence {
+  overflow:hidden;
+  padding:20px;
+}
+
+#sentence > li, #sentence > ul {display:inline; }
+
+#textSlider {
+  overflow:visible !important;
+  text-align:center;
+  display:inline;
+  position:relative;
+  height:25px;
+}
+
+.adj {
+  white-space: nowrap;
+  list-style: none;
+  position:absolute;
+  line-height: .5em;
+  -webkit-transform: translateY(60px);
+  -ms-transform: translateY(60px);
+  transform: translateY(60px);
+}
+
+.slide-in {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.slide-out {
+  -webkit-transform: translateY(-60px);
+  -ms-transform: translateY(-60px);
+  transform: translateY(-60px);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.quoats_background{
+    text-align: center;
+}
+
+.testtext{
+    font-style: italic;
+
 }
