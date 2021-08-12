@@ -5757,12 +5757,13 @@ textarea.form-control-lg {
 .carousel-item,
 .carousel-inner {
   height: 450px;
-  text-align: center;
   width: auto;
+  text-align: center;
 }
 .carousel-inner img{
-  height: auto;
+  height: 450px;
   width: auto;
+  display:block
 }
 .carousel-item {
   text-align: center;
