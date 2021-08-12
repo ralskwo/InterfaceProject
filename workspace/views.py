@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
-from .models import DBPrincess
+from .models import DBPrincess, DBInfomation
 from os import listdir
 
 def home(request) :
@@ -28,14 +28,22 @@ def home(request) :
 
 
 def princess(request) :
-    princess_name = request.GET.get('princess_name')
-    context = {'princess_name': princess_name}
+    #princess_name = request.GET.get('princess_name')
 
     full_name_main1 = [i for i in listdir("workspace/static/assets/img/Main1/")]
     princess_name1 = [name[:name.index('.')] for name in full_name_main1]
 
+    princess_info = DBInfomation.objects.all()
+    info_list = [[info.princess.name,
+                  str(info.princess.age),
+                  info.princess.country.country,
+                  info.info,
+                  info.personality,
+                  info.characteristic] for info in princess_info]
+
     context = {
         'princess_name1': princess_name1,
+        'info_list': info_list,
     }
     return render(request, "princess.html", context)
 
@@ -53,4 +61,3 @@ def test(request):
     context = {"princess_dict": princess_dict, "princess_name": princess_name}
 
     return render(request, "test.html", context)
-
