@@ -48,8 +48,6 @@ def princess(request) :
             specific_info = info_list[i][0]
             break
 
-
-    file_list = []
     root_img_folder = "workspace/static/assets/img"
     for rt, _, files in walk(root_img_folder):
         folder_name = rt[rt.index('img') + 4:]
@@ -62,7 +60,6 @@ def princess(request) :
         'princess_name1': princess_name1,
         'info_list': info_list,
         'specific_info': specific_info,
-        'file_list': file_list,
     }
     return render(request, "princess.html", context)
 

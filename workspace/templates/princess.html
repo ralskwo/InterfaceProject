@@ -32,8 +32,8 @@
         <!-- 상단 네비게이션 바 -->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div id="mySidebar" class="sidebar">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
-                <a href="#">Home</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">←</a>
+                <a href="/workspace/home">Home</a>
                 <button class="dropdown-btn">Princesses
                     <i class="fa fa-caret-down"></i>
                 </button>
@@ -42,7 +42,7 @@
                     <a style="font-size:20px" href="/workspace/princess?princess_name={{ name }}">{{ name }}</a>
                     {% endfor %}
                 </div>
-                <a href="#">Account</a>
+                <a href="/">Account</a>
                 <a href="#">게시판</a>
             </div>
             <div id="main">
@@ -72,8 +72,11 @@
                     <!-- 메인 글자-->
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
-                                <h1 class="display-5 fw-bolder text-white mb-2">Anna</h1>
-                                <p class="lead fw-normal text-white-50 mb-4">나이: <br>국적: <br>배경 이야기: </p>
+                                <h1 class="display-5 fw-bolder text-white mb-2">{{ specific_info.0 }}</h1>
+                                <p class="lead fw-normal text-white-50 mb-4"style="text-align:left ; margin-left : 100px; line-height: 80px; color:white">
+                                    나이: {{ specific_info.1 }}<br>
+                                    국적: {{ specific_info.0 }}<br>
+                                    성격: {{ specific_info.4 }}<br></p>
                             </div>
                         </div>
                         <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
