@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
-from .models import DBPrincess, DBInfomation
+from .models import *
 from os import listdir, walk
 
 def home(request) :
@@ -53,13 +53,26 @@ def princess(request) :
     for i in range(len(info_list)):
         if info_list[i][0] == princess_name:
             specific_info = info_list[i]
+            break
+
+
+    quoats_all = [[q.princess.name,
+                    q.quoat_eng,
+                    q.quoat_kor] for q in DBQuoats.objects.all()]
+
+    quoats_list = []
+    for name, eng, kor in quoats_all:
+        if name.lower() == princess_name.lower():
+            quoats_list.append([eng, kor])
+
 
     context = {
-        'princess_name1' : princess_name1,
-        'img_list' : list(enumerate(img_list, start=1)),
-        'folder_name' : folder_name,
+        'princess_name1': princess_name1,
+        'img_list': list(enumerate(img_list, start=1)),
+        'folder_name': folder_name,
         'info_list': info_list,
         'specific_info': specific_info,
+        'quoats_list': list(enumerate(quoats_list)),
     }
 
     return render(request, "princess.html", context)
