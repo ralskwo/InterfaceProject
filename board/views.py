@@ -42,8 +42,8 @@ def question_create(request) :
     if request.method == 'POST' :
         title = request.POST.get('title')
         content = request.POST.get('content')
-
-        Result = Content(title=title, content=content)
+        create_date = timezone.now()
+        Result = Question(subject=title, content=content, create_date=create_date)
         Result.save()
         context = { "msg" : "저장 완료"  }
     else :
