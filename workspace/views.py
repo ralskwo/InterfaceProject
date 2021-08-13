@@ -74,12 +74,18 @@ def princess(request) :
     clip_data = [[clip.princess.name,
                   clip.clip_name,
                   clip.clip_link] for clip in princess_clip]
-    clip_title = []
-    clip_link = []
+
+    clips = []
     for name, title, link in clip_data :
         if name.lower() == princess_name.lower():
-            clip_title.append(title)
-            clip_link.append(link)
+            clips.append([title, link])
+
+    embed_link = ""
+    for i in range(len(clips)):
+        if 'embed' in clips[i][1]:
+            embed_link = clips[i][1]
+            clips[i][1].replace('embed/', 'watch?v=')
+
 
     context = {
         'princess_name1': princess_name1,
@@ -87,8 +93,8 @@ def princess(request) :
         'folder_name': folder_name,
         'info_list': info_list,
         'specific_info': specific_info,
-        'clip_title': clip_title,
-        'clip_link': clip_link,
+        'clips': clips,
+        'embed_link': embed_link,
         'quoats_list': list(enumerate(quoats_list)),
     }
 
