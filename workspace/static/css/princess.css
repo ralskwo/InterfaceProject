@@ -6949,7 +6949,6 @@ textarea.form-control-lg {
 .py-5 {
   background-color: #fbf5f4;
   text-align: center;
-  margin: 0 auto;
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
 }
@@ -10747,10 +10746,10 @@ html {
 
 .testtext{
     font-style: italic;
-
 }
 .testtext1{
   color: mediumvioletred;
+  font-style: italic;
   font-weight: 2px bold;
   font-size: 30px;
   font-family:Waltograph;
@@ -10758,6 +10757,7 @@ html {
 }
 .testtext2{
   font-size: 30px;
+  font-style: italic;
   font-family: 'Gowun Dodum', sans-serif;
   font-weight: bold;
   color:white;
@@ -10766,3 +10766,9 @@ html {
   line-height:115%;
 }
 
+.middle{
+  flex: 0 1 auto;
+  align-self: center;
+  width: 33.33333333%;
+  text-align: left;
+}

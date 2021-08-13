@@ -14,6 +14,9 @@
         <link href="//db.onlinewebfonts.com/c/e6d70e2026165d37d01803d5b3f4489a?family=Waltograph" rel="stylesheet" type="text/css"/>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/static/css/home.css" rel="stylesheet" />
@@ -116,7 +119,7 @@
                         {% for num, q in quoats_list %}
                         <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
                             <h3>{{q.0}}</h3>
-                            <h3>{{q.1}}</h3>
+                            <h3>{{q.1}}</h3>gi
                         </div>
                         {% endfor %}
                     <ul class="carousel-indicators">
@@ -141,29 +144,28 @@
                     </div>
                 </div>
             </section>
-            <!-- Features section-->
+            <!-- 클립 파트-->
             <section id="characteristic">
-                    <div class="py-5" id="features">
-                        <h1>핫클립 & OST</h1><hr>
-                        <div class="container px-5 my-5">
-                            <div class="row gx-5" style="border:1px solid black; border-radius:10px 10px 10px 10px">
-                                <div class="col-lg-4 mb-5 mb-lg-0" style="border-right:1px groove black">
-                                    <h4 class="fw-bolder mb-0">
-                                        <ol>
-                                            {% for title, link in clips %}
-                                                <li><a href="{{link}}">{{title}}</a></li>
-                                            {% endfor %}
-
-                                        </ol>
-                                    </h4>
-                                </div>
-                                <div class="col-lg-8">
-                                    <h3>대표 영상</h3>
-                                    <iframe width="560" height="315" src={{embed_link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
+                <div class="py-5" id="features">
+                    <h1>핫클립 & OST</h1><hr>
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5">
+                            <div class="middle">
+                                <h4 style="top:50%"  class="fw-bolder mb-0">
+                                    <ol>
+                                    {% for title, link in clips %}
+                                        <li><a href="{{link}}">{{title}}</a></li>
+                                    {% endfor %}
+                                    </ol>
+                                </h4>
+                            </div>
+                            <div class="col-lg-8">
+                                <h3>대표 영상</h3>
+                                <iframe width="560" height="315" src={{embed_link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
             <!-- Blog preview section-->
             <section class="py-5" id="contents">
