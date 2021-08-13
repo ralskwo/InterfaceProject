@@ -10699,6 +10699,7 @@ html {
 #sentence {
   overflow:hidden;
   padding:20px;
+  height: 130px;
 }
 
 #sentence > li, #sentence > ul {display:inline; }
@@ -10714,11 +10715,12 @@ html {
 .adj {
   white-space: nowrap;
   list-style: none;
-  position:absolute;
-  line-height: .5em;
+  position:relative;
+  line-height: 0.1em;
   -webkit-transform: translateY(60px);
   -ms-transform: translateY(60px);
   transform: translateY(60px);
+  margin-inside: 100px;
 }
 
 .slide-in {
@@ -10741,7 +10743,26 @@ html {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .testtext{
     font-style: italic;
 
 }
+=======
+.testtext1{
+  color: mediumvioletred;
+  font-weight: 2px bold;
+  font-size: 30px;
+  font-family:Waltograph;
+  margin-bottom: 30px;
+}
+.testtext2{
+  font-size: 30px;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-weight: bold;
+  color:white;
+  text-shadow: 2px 2px 2px darkslateblue;
+  margin-bottom: 10px;
+  line-height:115%;
+}
+>>>>>>> bfa1f13f35c75576bbd0da565be34cb186f769e1
