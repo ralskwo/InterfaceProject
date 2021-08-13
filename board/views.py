@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import *
+from django.contrib.auth.models import User
 from django.utils import timezone
+from django.conf import settings
 
 def index(request) :
     #목록
@@ -29,21 +31,12 @@ def answer_create(request, question_id) :
 def question_create(request) :
     print("question_create수행")
     #질문등록
-    '''if request.method == 'POST':
-        form= QuestionForm(request.POST)
-        if form.is_valid():
-            question = form.save(commit=False)
-            question.create_date=timezone.now()
-            question.save()
-            return redirect('board:index')
-    else :
-        form = QuestionForm
-    context ={'form':form}'''
     if request.method == 'POST' :
         title = request.POST.get('title')
         content = request.POST.get('content')
         create_date = timezone.now()
-        Result = Question(subject=title, content=content, create_date=create_date)
+        user= request.user
+        Result = Question(subject=title, content=content, create_date=create_date, user=user)
         Result.save()
         context = { "msg" : "저장 완료"  }
     else :
