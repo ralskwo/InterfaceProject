@@ -10699,10 +10699,6 @@ html {
   min-height: 15rem;
 }
 
-#sentence {
-  overflow:hidden;
-  padding:20px;
-}
 
 #sentence > li, #sentence > ul {display:inline; }
 
@@ -10711,17 +10707,18 @@ html {
   text-align:center;
   display:inline;
   position:relative;
-  height:25px;
+  height: 130px;
 }
 
 .adj {
   white-space: nowrap;
   list-style: none;
-  position:absolute;
-  line-height: .5em;
+  position:relative;
+  line-height: 0.1em;
   -webkit-transform: translateY(60px);
   -ms-transform: translateY(60px);
   transform: translateY(60px);
+  margin-inside: 100px;
 }
 
 .slide-in {
@@ -10744,7 +10741,27 @@ html {
     text-align: center;
 }
 
-.testtext{
-    font-style: italic;
-
+.testtext1{
+  color: mediumvioletred;
+  font-weight: 2px bold;
+  font-size: 30px;
+  font-family:Waltograph;
+  margin-bottom: 30px;
+}
+.testtext2{
+  font-size: 30px;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-weight: bold;
+  color:white;
+  text-shadow: 2px 2px 2px darkslateblue;
+  margin-bottom: 10px;
+  line-height:115%;
+}
+#textSlider{
+  height:20px;
+  margin-bottom:30px;
+  padding: 20px;
+}
+.wrap{
+  height: 150px;
 }
