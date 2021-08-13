@@ -10743,12 +10743,10 @@ html {
     text-align: center;
 }
 
-<<<<<<< HEAD
 .testtext{
     font-style: italic;
 
 }
-=======
 .testtext1{
   color: mediumvioletred;
   font-weight: 2px bold;
@@ -10765,4 +10763,3 @@ html {
   margin-bottom: 10px;
   line-height:115%;
 }
->>>>>>> bfa1f13f35c75576bbd0da565be34cb186f769e1
