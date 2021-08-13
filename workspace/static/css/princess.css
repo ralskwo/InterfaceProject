@@ -6748,8 +6748,6 @@ textarea.form-control-lg {
 }
 
 .my-5 {
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
 }
 
 .my-auto {
@@ -6835,6 +6833,7 @@ textarea.form-control-lg {
 
 .mb-5 {
   margin-bottom: 3rem !important;
+  text-align: left;
 }
 
 .mb-auto {
@@ -6919,8 +6918,6 @@ textarea.form-control-lg {
 }
 
 .px-5 {
-  padding-right: 3rem !important;
-  padding-left: 3rem !important;
 }
 
 .py-0 {

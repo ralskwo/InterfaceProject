@@ -51,18 +51,16 @@ def princess(request) :
                   info.info,
                   info.personality,
                   info.characteristic] for info in princess_info]
-
     specific_info = []
     for i in range(len(info_list)):
         if info_list[i][0] == princess_name:
             specific_info = info_list[i]
             break
 
-
+     # 명대사
     quoats_all = [[q.princess.name,
                     q.quoat_eng,
                     q.quoat_kor] for q in DBQuoats.objects.all()]
-
     quoats_list = []
     for name, eng, kor in quoats_all:
         if name.lower() == princess_name.lower():
@@ -74,12 +72,17 @@ def princess(request) :
     clip_data = [[clip.princess.name,
                   clip.clip_name,
                   clip.clip_link] for clip in princess_clip]
-    clip_title = []
-    clip_link = []
-    for name, title, link in clip_data :
+
+    clips = []
+    for name, title, link in clip_data:
         if name.lower() == princess_name.lower():
-            clip_title.append(title)
-            clip_link.append(link)
+            clips.append([title, link])
+
+    embed_link = ""
+    for i in range(len(clips)):
+        if 'embed' in clips[i][1]:
+            embed_link = clips[i][1]
+            clips[i][1].replace('embed/', 'watch?v=')
 
     context = {
         'princess_name1': princess_name1,
@@ -87,10 +90,11 @@ def princess(request) :
         'folder_name': folder_name,
         'info_list': info_list,
         'specific_info': specific_info,
-        'clip_title': clip_title,
-        'clip_link': clip_link,
+        'clips': clips,
+        'embed_link': embed_link,
         'quoats_list': list(enumerate(quoats_list)),
     }
+
 
     return render(request, "princess.html", context)
 

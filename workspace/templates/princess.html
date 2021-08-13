@@ -143,14 +143,17 @@
                     <div class="container px-5 my-5">
                         <div class="row gx-5">
                             <div class="col-lg-4 mb-5 mb-lg-0">
-                                {% for title in clip_title %}
-                                <h2 class="fw-bolder mb-0">
-                                    <a>1. {{title}}</a>
-                                </h2>
-                                {% endfor %}
+                                <h4 class="fw-bolder mb-0">
+                                    <ol>
+                                        {% for title, link in clips %}
+                                            <li><a href="{{link}}">{{title}}</a></li>
+                                        {% endfor %}
+
+                                    </ol>
+                                </h4>
                             </div>
                             <div class="col-lg-8">
-                                <a>디즈니영상자리</a>
+                                <iframe width="560" height="315" src={{embed_link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
