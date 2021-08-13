@@ -53,7 +53,7 @@ def princess(request) :
                   info.characteristic] for info in princess_info]
     specific_info = []
     for i in range(len(info_list)):
-        if info_list[i][0] == princess_name:
+        if info_list[i][0].lower() == princess_name.lower():
             specific_info = info_list[i]
             break
 
