@@ -51,18 +51,16 @@ def princess(request) :
                   info.info,
                   info.personality,
                   info.characteristic] for info in princess_info]
-
     specific_info = []
     for i in range(len(info_list)):
         if info_list[i][0] == princess_name:
             specific_info = info_list[i]
             break
 
-
+     # 명대사
     quoats_all = [[q.princess.name,
                     q.quoat_eng,
                     q.quoat_kor] for q in DBQuoats.objects.all()]
-
     quoats_list = []
     for name, eng, kor in quoats_all:
         if name.lower() == princess_name.lower():
@@ -86,7 +84,6 @@ def princess(request) :
             embed_link = clips[i][1]
             clips[i][1].replace('embed/', 'watch?v=')
 
-
     context = {
         'princess_name1': princess_name1,
         'img_list': list(enumerate(img_list, start=1)),
@@ -97,6 +94,7 @@ def princess(request) :
         'embed_link': embed_link,
         'quoats_list': list(enumerate(quoats_list)),
     }
+
 
     return render(request, "princess.html", context)
 
