@@ -23,4 +23,5 @@ urlpatterns = [
     path('workspace/', include('workspace.urls')),
     path('', loginapp.views.login, name='login'),
     path('accounts/', include('allauth.urls')),
+    path('board/', include('board.urls')),
 ]

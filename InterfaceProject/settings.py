@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'InterfaceProject',
     'workspace',
+    'board',
     'loginapp.apps.LoginappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
