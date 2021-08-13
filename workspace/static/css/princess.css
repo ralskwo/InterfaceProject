@@ -10699,6 +10699,11 @@ html {
   min-height: 15rem;
 }
 
+#sentence {
+  overflow:hidden;
+  padding:20px;
+  height: 130px;
+}
 
 #sentence > li, #sentence > ul {display:inline; }
 
@@ -10707,7 +10712,7 @@ html {
   text-align:center;
   display:inline;
   position:relative;
-  height: 130px;
+  height:25px;
 }
 
 .adj {
@@ -10756,12 +10761,4 @@ html {
   text-shadow: 2px 2px 2px darkslateblue;
   margin-bottom: 10px;
   line-height:115%;
-}
-#textSlider{
-  height:20px;
-  margin-bottom:30px;
-  padding: 20px;
-}
-.wrap{
-  height: 150px;
 }
