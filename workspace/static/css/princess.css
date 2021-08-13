@@ -10747,6 +10747,7 @@ html {
 }
 .testtext1{
   color: mediumvioletred;
+  font-style: italic;
   font-weight: 2px bold;
   font-size: 30px;
   font-family:Waltograph;
@@ -10754,6 +10755,7 @@ html {
 }
 .testtext2{
   font-size: 30px;
+  font-style: italic;
   font-family: 'Gowun Dodum', sans-serif;
   font-weight: bold;
   color:white;
