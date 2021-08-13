@@ -514,6 +514,7 @@ progress {
 @media (min-width: 1200px) {
   .display-5 {
     font-size: 3rem;
+    font-family:Waltograph
   }
 }
 
@@ -1435,6 +1436,7 @@ progress {
   .col-lg-4 {
     flex: 0 0 auto;
     width: 33.33333333%;
+    vertical-align: middle;
   }
 
   .col-lg-5 {
@@ -7103,6 +7105,7 @@ textarea.form-control-lg {
 
 .fw-bolder {
   font-weight: bolder !important;
+  margin: auto;
 }
 
 .lh-1 {
@@ -10764,6 +10767,7 @@ html {
   margin-bottom: 10px;
   line-height:115%;
 }
+
 .middle{
   flex: 0 1 auto;
   align-self: center;
@@ -10771,3 +10775,21 @@ html {
   text-align: left;
   font-family:'Gowun Dodum', sans-serif;
 }
+#show{
+    border: 2px solid white;
+    background-color: transparent;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    transition-duration: 0.2s;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 90%;
+    color: lightgray;
+}
+#show:hover {
+    background-color: hotpink;
+;}
