@@ -58,8 +58,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#intro">소개</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#quotes">격언</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#characteristic">성격 및 특징</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#quotes">명대사</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#characteristic">핫클립 & OST</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contents">컨텐츠</a></li>
                     </ul>
                 </div>
@@ -73,10 +73,13 @@
                     <div class="col-lg-8 col-xl-7 col-xxl-6">
                         <div class="my-5 text-center text-xl-start">
                             <h1 class="display-5 fw-bolder text-white mb-2">{{ specific_info.0 }}</h1>
-                            <p class="lead fw-normal text-white-50 mb-4"style="text-align:left ; margin-left : 100px; line-height: 80px; color:white">
-                                나이: {{ specific_info.1 }}<br>
-                                국적: {{ specific_info.2 }}<br>
-                                성격: {{ specific_info.4 }}<br></p>
+                            <p class="lead fw-normal text-white-50 mb-4"style="text-align:left ; line-height: 30px; color:white;">
+                                나이 : {{ specific_info.1 }}<br><br>
+                                국적 : {{ specific_info.2 }}<br><br>
+                                특징 : {{ specific_info.5 }}<br><br>
+                                성격 : {{ specific_info.4 }}<br><br>
+                                배경 : {{ specific_info.3 }}
+                            </p>
                         </div>
                     </div>
                     <!-- 사진 부분-->
@@ -130,6 +133,7 @@
                     </div>
                 </div>-->
                 <div class="quoats_background">
+                    <h1>명대사</h1><hr>
                     <div class="wrap">
                         <ul id="sentence">
                             <ul id="textSlider"></ul>
@@ -139,25 +143,27 @@
             </section>
             <!-- Features section-->
             <section id="characteristic">
-                <div class="py-5" id="features">
-                    <div class="container px-5 my-5">
-                        <div class="row gx-5">
-                            <div class="col-lg-4 mb-5 mb-lg-0">
-                                <h4 class="fw-bolder mb-0">
-                                    <ol>
-                                        {% for title, link in clips %}
-                                            <li><a href="{{link}}">{{title}}</a></li>
-                                        {% endfor %}
+                    <div class="py-5" id="features">
+                        <h1>핫클립 & OST</h1><hr>
+                        <div class="container px-5 my-5">
+                            <div class="row gx-5" style="border:1px solid black; border-radius:10px 10px 10px 10px">
+                                <div class="col-lg-4 mb-5 mb-lg-0" style="border-right:1px groove black">
+                                    <h4 class="fw-bolder mb-0">
+                                        <ol>
+                                            {% for title, link in clips %}
+                                                <li><a href="{{link}}">{{title}}</a></li>
+                                            {% endfor %}
 
-                                    </ol>
-                                </h4>
-                            </div>
-                            <div class="col-lg-8">
-                                <iframe width="560" height="315" src={{embed_link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </ol>
+                                    </h4>
+                                </div>
+                                <div class="col-lg-8">
+                                    <h3>대표 영상</h3>
+                                    <iframe width="560" height="315" src={{embed_link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
             <!-- Blog preview section-->
             <section class="py-5" id="contents">
