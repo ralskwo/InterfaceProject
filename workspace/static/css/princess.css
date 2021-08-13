@@ -10763,3 +10763,9 @@ html {
   margin-bottom: 10px;
   line-height:115%;
 }
+.middle{
+  flex: 0 1 auto;
+  align-self: center;
+  width: 33.33333333%;
+  text-align: left;
+}
