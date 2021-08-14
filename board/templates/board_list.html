@@ -18,7 +18,8 @@
         <tr>
             <td>{{ forloop.revcounter }}</td>
             <td>
-                <a href="{% url 'detail' question.id %}">
+<!--                유저인지 확인할 곳-->
+                <a href="{% url 'detail' question.id %}" onclick="IsUser();">
                     {{ question.subject }}
                 </a>
             </td>
@@ -33,7 +34,8 @@
         {% endif %}
         </tbody>
     </table>
-    <a href="{% url 'create' %}" class="btn btn-primary">
+<!--    유저인지 확인할 곳-->
+    <a href="{% url 'create' %}" class="btn btn-primary" onclick="IsUser();">
         글 작성
     </a>
 
@@ -79,4 +81,19 @@
     <!-- 페이징처리 끝 -->
 
 </div>
+<script>
+    function IsUser(){
+        var isUser = "{{isUser}}".toLowerCase();
+        console.log(isUser);
+        if(isUser == "false"){
+            alert("로그인이 필요한 기능입니다.")
+            return false;
+        }
+        else{
+            alert("로그인 되었습니다.)
+            return true;
+        }
+    }
+
+</script>
 {% endblock %}

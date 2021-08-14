@@ -14,7 +14,9 @@ def index(request) :
     #paginator = Paginator(question_list, 3)
     #page_obj = paginator.get_page(page)
 
-    context = {'question_list': question_list}
+    isUser = request.user.is_authenticated
+
+    context = {'question_list': question_list, 'isUser': isUser}
     #context = {'question_list': page_obj}
     return render(request, 'board_list.html', context)
 
