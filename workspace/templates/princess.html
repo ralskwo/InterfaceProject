@@ -113,28 +113,6 @@
         </header>
             <!-- 대사 파트-->
             <section class="py-5" style="background-color:linear-gradient()">
-                <!--<div id="myCarousel2" class="carousel-slide">
-                &lt;!&ndash; 아래 박스줄&ndash;&gt;
-                    <div class="carousel-inner">
-                        {% for num, q in quoats_list %}
-                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
-                            <h3>{{q.0}}</h3>
-                            <h3>{{q.1}}</h3>gi
-                        </div>
-                        {% endfor %}
-                    <ul class="carousel-indicators">
-                        {% for num, q in quoats_list %}
-                            <li class="quoats{{num}} {% if forloop.counter == 1 %}active{% endif %}"></li>
-                        {% endfor %}
-                    </ul>
-                    <a class="carousel-control-prev" href="#myCarousel2">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel2">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
-                    </div>
-                </div>-->
                 <div class="quoats_background">
                     <div class="wrap">
                         <ul id="sentence">
@@ -203,35 +181,6 @@
                 $("#myCarousel").carousel("next");
                 });
             });
-
-/*
-            $(document).ready(function(){
-                // Activate Carousel
-                $("#myCarousel2").carousel({
-                    interval: 1700,
-                    pause: "hover",
-                    wrap: true,
-                    keyboard: true
-                });
-
-                {% autoescape off %}
-                var quoats_list = {{quoats_list}};
-                {% endautoescape %}
-
-                for(let i=1; i < quoats_list.length+1; i++) {
-                    $(".quoats"+i.toString()).click(function(){
-                    $("#myCarousel2").carousel(i-1);
-                    });
-                }
-
-                // Enable Carousel Controls
-                $(".carousel-control-prev2").click(function(){
-                $("#myCarousel2").carousel("prev");
-                });
-                $(".carousel-control-next2").click(function(){
-                $("#myCarousel2").carousel("next");
-                });
-            });*/
 
         </script>
         <script>
