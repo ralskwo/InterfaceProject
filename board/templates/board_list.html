@@ -9,6 +9,7 @@
             <th>번호</th>
             <th>제목</th>
             <th>작성일시</th>
+            <th>작성자</th>
         </tr>
         </thead>
         <tbody>
@@ -17,11 +18,12 @@
         <tr>
             <td>{{ forloop.counter }}</td>
             <td>
-                <a href="{% url 'detail' question_id %}">
+                <a href="{% url 'detail' question.id %}">
                     {{ question.subject }}
                 </a>
             </td>
             <td>{{ question.create_date }}</td>
+            <td>{{question.user.last_name}}{{ question.user.first_name }}</td>
         </tr>
         {% endfor %}
         {% else %}
