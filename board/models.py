@@ -12,5 +12,10 @@ class Answer(models.Model) :
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     content = models.TextField()
     create_date = models.DateTimeField()
+    comment_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return f"{self.id}, {self.question}, {self.content}, {self.create_date}"
 
 # Create your models here.

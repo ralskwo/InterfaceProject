@@ -37,8 +37,10 @@ def answer_create(request, question_id) :
     answer = Answer(question=question, content=request.POST.get('content'), create_date=timezone.now()) 
     #answer.save()  로도 가능
     '''
+    comment_user = Answer.objects.commnet_user
     question.answer_set.create(content=request.POST.get('content'),
-                               create_date=timezone.now())
+                               create_date=timezone.now(),
+                               comment_user=comment_user)
     return redirect('detail', question_id=question_id)
 
 
