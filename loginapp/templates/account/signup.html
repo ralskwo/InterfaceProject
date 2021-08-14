@@ -78,7 +78,7 @@
         }
 
         .button_grey{
-            border: 2px solid white;
+            border: 2px solid grey;
             background-color: transparent;
             padding: 8px;
             text-align: center;
@@ -4706,28 +4706,33 @@
             </svg>
     </div>
 </div>
-<div class="choice">
-    {% extends "account/base.html" %}
+<div>
+    {% extends "base_board.html" %}
 
-    {% load i18n %}
+        {% include "account/base.html" %}
 
-    {% block head_title %}{% trans "Signup" %}{% endblock %}
+        {% load i18n %}
 
-    {% block content %}
-    <h1>{% trans "Sign Up" %}</h1>
+        {% block head_title %}{% trans "Signup" %}{% endblock %}
 
-    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+        {% block content %}
 
-    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-      {% csrf_token %}
-      {{ form.as_p }}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
-      <button class="button_grey" type="submit">{% trans "Sign Up" %} &raquo;</button>
-    </form>
+        <div class="choice">
+            <h1>{% trans "Sign Up" %}</h1>
 
-    {% endblock %}
+            <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <button class="button_grey" type="submit">{% trans "Sign Up" %} &raquo;</button>
+            </form>
+        </div>
+
+        {% endblock %}
 </div>
 
 <!-- noise overlay -->
