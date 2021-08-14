@@ -30,17 +30,16 @@ def detail(request, question_id) :
 
     #내용 출력
     question = Question.objects.get(id=question_id)
-    context = {'question': question, 'princess_name1': princess_name1}
+    comment_user = request.user
+    context = {'question': question, 'comment_user': comment_user, 'princess_name1': princess_name1}
     return render(request, 'board_detail.html', context)
 
 
 # board_deta
 def answer_create(request, question_id) :
-    #댓글 입력
     question = Question.objects.get(id=question_id)
 
     comment_user = request.user
-    print(comment_user)
     question.answer_set.create(content=request.POST.get('content'),
                                create_date=timezone.now(),
                                comment_user=comment_user)
@@ -64,3 +63,10 @@ def question_create(request):
     else :
         context = {"msg": None, "princess_name1": princess_name1}
     return render(request, 'myboard_create.html', context)
+
+def delete_content(request):
+    question_id = request.GET['id']
+    writer = Question.objects.get(id=question_id)
+    writer.delete()
+    return redirect("index")
+

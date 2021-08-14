@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from .import views
 
 #app_name = 'board'
 
@@ -8,4 +8,5 @@ urlpatterns = [
     path('detail/<int:question_id>/', views.detail, name='detail'),
     path('answer/create/<int:question_id>', views.answer_create, name='answer_create'),
     path('question/create/', views.question_create, name='create'),
+    path('delete/', views.delete_content, name='delete'),
 ]
