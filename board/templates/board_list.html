@@ -16,7 +16,7 @@
         {% if question_list %}
         {% for question in question_list %}
         <tr>
-            <td>{{ forloop.revcounter }}</td>
+            <td>{{ question.id }}</td>
             <td>
                 {% if isUser %}
                 <a href="{% url 'detail' question.id %}">
