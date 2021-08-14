@@ -6,17 +6,17 @@
     <h2 class="border-bottom py-2">{{ question.subject }}
     </h2>
     <div class="d-flex justify-content-end">
-        <div class="badge badge-light p-2">
+        <div style="color:black" class="badge badge-light p-2">
             작성자 : {{question.user.last_name}}{{ question.user.first_name }}
         </div>
     </div>
     <div class="card my-3">
         <div class="card-body">
-            <div class="card-text" style="white-space:pre-line;">
+            <div style="color:black"  class="card-text" style="white-space:pre-line;">
                 {{question.content}}
             </div>
             <div class="d-flex justify-content-end">
-                <div class="badge badge-light p-2">
+                <div style="color:black"  class="badge badge-light p-2">
                     {{ question.create_date }}
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 {{ answer.content }}
             </div>
             <div class="d-flex justify-content-end">
-                <div class="badge badge-light p-2">
+                <div style="color:black" class="badge badge-light p-2">
                     {% if answer.comment_user.first_name %}
                         작성자: {{answer.comment_user.last_name}}{{answer.comment_user.first_name}}<br><br>
                     {% else %}

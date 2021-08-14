@@ -7,15 +7,19 @@
         <a class="btn" href="{% url 'create' %}">작성 화면</a>
         <a class="btn" href="{% url 'index' %}">리스트 화면</a><br>
     {% else %}
-        <h2> 게시글 등록 </h2>
-        <hr>
-        <form method="post" action="{% url 'create' %}" class="post-form my-3" onsubmit="return formCheck();">
-        {% csrf_token %}
-        <p> 제목 : <input type="text" name="title" id="title_"  required></p>
-        <p> 내용 : <textarea name="content" id="content_"  rows="5" cols="30" required></textarea></p>
-    <input type="submit" id="submit_" value="작성보내기"/>
-    <button onclick='write_cancel(); return false;'>작성취소</button>
 
+    <div style="width:95%; margin:auto">
+        <h2 style="width:100%; height:60px; background-color:#212529; padding: 10px; text-align: center; color:white;"> 게시글 등록 </h2>
+        <hr>
+        <div style="width:80%; margin-top:50px;">
+            <form method="post" action="{% url 'create' %}" class="post-form my-3" onsubmit="return formCheck();">
+            {% csrf_token %}
+            <p> 제목 : <input type="text" name="title" id="title_"  required></p>
+            <p> 내용 : <textarea name="content" id="content_"  rows="11" cols="100" required></textarea></p>
+            <input  type="submit" id="submit_" value="작성보내기" />
+            <button style="border: 1px solid #64a19d; border-radius: 3px; height: 30px;" onclick='write_cancel(); return false;'>작성취소</button>
+        </div>
+    </div>
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script>
