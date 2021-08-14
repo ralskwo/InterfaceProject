@@ -33,7 +33,11 @@
             </div>
             <div class="d-flex justify-content-end">
                 <div class="badge badge-light p-2">
-                    작성자: {{answer.question}}<br><br>
+                    {% if answer.comment_user.first_name %}
+                        작성자: {{answer.comment_user.last_name}}{{answer.comment_user.first_name}}<br><br>
+                    {% else %}
+                        작성자: {{answer.comment_user}}<br><br>
+                    {% endif %}
                     {{ answer.create_date }}
                 </div>
             </div>
