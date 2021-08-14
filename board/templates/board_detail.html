@@ -3,7 +3,13 @@
 
 {% block content %}
 <div class="container my-3">
-    <h2 class="border-bottom py-2">{{ question.subject }}</h2>
+    <h2 class="border-bottom py-2">{{ question.subject }}
+    </h2>
+    <div class="d-flex justify-content-end">
+        <div class="badge badge-light p-2">
+            작성자 : {{question.user.last_name}}{{ question.user.first_name }}
+        </div>
+    </div>
     <div class="card my-3">
         <div class="card-body">
             <div class="card-text" style="white-space:pre-line;">
@@ -39,7 +45,7 @@
         <div class="form-group">
             <textarea name="content" id="content" class="form-control" rows="10"></textarea>
         </div>
-        <input type="submit" value="댓글 입력">
+        <input type="submit" value="댓글 입력"><a class="btn btn-primary" href="{% url 'index' %}">글 목록</a>
     </form>
 </div>
 {% endblock %}
