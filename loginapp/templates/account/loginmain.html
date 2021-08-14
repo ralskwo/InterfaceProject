@@ -79,7 +79,7 @@
         }
 
         .button_grey{
-            border: 2px solid white;
+            border: 2px solid grey;
             background-color: transparent;
             padding: 8px;
             text-align: center;
@@ -806,7 +806,7 @@
         .controls {
             position: absolute;
             top: 0px;
-            width 20%;
+            width: 20%;
             z-index: 10;
             background: rgba(0, 0, 0, 0.16);
             height: 100%;
@@ -2550,6 +2550,7 @@
     </style>
 </head>
 <body>
+
 <div class="stars">
     <div class="starWrap starProject">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 599.456 593.71"
@@ -3102,6 +3103,7 @@
             <circle fill="#FFFFFF" cx="374.931" cy="131.924" r="0.398"/>
             <circle fill="#FFFFFF" cx="324.473" cy="134.667" r="0.398"/>
             <circle fill="#FFFFFF" cx="321.6" cy="81.573" r="0.398"/>
+        </svg>
     </div>
 
     <div class="starWrap starReflect">
@@ -4703,36 +4705,40 @@
                       <circle fill="#FFFFFF" cx="10.7" cy="73.9" r="1.2"/>
                       <circle fill="#FFFFFF" cx="27" cy="48" r="1.2"/>
                       <circle fill="#FFFFFF" cx="1.2" cy="34.9" r="1.2"/>
-                  </g>
+                  </
             </svg>
     </div>
 </div>
-<div class="choice">
-    {% extends "account/base.html" %}
+<div>
+    {% extends "base_board.html" %}
 
-    {% block content %}
-        {% load socialaccount %}
-        {% providers_media_js %}
-        <section class="loginpage">
-            <div class="boxing">
-                {% if user.is_authenticated %}
-                    <button class="button_grey"><a href="/accounts/logout">로그아웃</a></button>
-                    <br>
-                    {{ user.username }} 님이 로그인 중
-                {% else %}
-                    <button class="button_grey"><a href="/accounts/signup">회원가입</a></button>
-                    <br>
-                    <button class="button_grey"><a href="/accounts/login">이메일 로그인</a></button>
-                    <br>
-                    <button class="button_grey"><a href="{% provider_login_url 'google' %}">구글 로그인</a></button>
-                {% endif %}
+        {% include "account/base.html" %}
+
+        {% block content %}
+            <div class="choice">
+                {% load socialaccount %}
+                {% providers_media_js %}
+                <section class="loginpage">
+                    <div class="boxing">
+                        {% if user.is_authenticated %}
+                            <button class="button_grey"><a  style="text-decoration:none" href="/accounts/logout">로그아웃</a></button>
+                            <br>
+                            {{ user.username }} 님이 로그인 중
+                        {% else %}
+                            <button class="button_grey"><a  style="text-decoration:none"  href="/accounts/signup">회원가입</a></button>
+                            <br>
+                            <button class="button_grey"><a  style="text-decoration:none"  href="/accounts/login">이메일 로그인</a></button>
+                            <br>
+                            <button class="button_grey"><a  style="text-decoration:none"  href="{% provider_login_url 'google' %}">구글 로그인</a></button>
+                        {% endif %}
+                    </div>
+                </section>
             </div>
-        </section>
-    {% endblock %}
+        {% endblock %}
 </div>
 
 <!-- noise overlay -->
-<div class="noise"</div>
+<div class="noise"></div>
 
 <!-- sprites -->
 <div class="spriteWrap"></div>
