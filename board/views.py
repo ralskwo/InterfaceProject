@@ -8,15 +8,18 @@ from django.core.paginator import Paginator
 # board_list
 def index(request) :
     #목록
-    #page = request.Get.get('page', 'detail/1')
+    page = request.GET.get('page', 'detail/1')
     question_list = Question.objects.order_by('-create_date')
 
-    #paginator = Paginator(question_list, 3)
-    #page_obj = paginator.get_page(page)
+    paginator = Paginator(question_list, 10)
+    page_obj = paginator.get_page(page)
 
-    context = {'question_list': question_list}
-    #context = {'question_list': page_obj}
+    isUser = request.user.is_authenticated
+
+    #context = {'question_list': question_list, 'isUser': isUser}
+    context = {'question_list': page_obj, 'isUser': isUser}
     return render(request, 'board_list.html', context)
+
 
 
 # board_detail

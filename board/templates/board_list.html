@@ -16,11 +16,15 @@
         {% if question_list %}
         {% for question in question_list %}
         <tr>
-            <td>{{ forloop.revcounter }}</td>
+            <td>{{ question.id }}</td>
             <td>
+                {% if isUser %}
                 <a href="{% url 'detail' question.id %}">
                     {{ question.subject }}
                 </a>
+                {% else %}
+                <a onclick="alert('로그인이 필요한 기능입니다.'); return false;")>{{ question.subject }}</a>
+                {% endif %}
             </td>
             <td>{{ question.create_date }}</td>
             <td>{{question.user.last_name}}{{ question.user.first_name }}</td>
@@ -33,10 +37,11 @@
         {% endif %}
         </tbody>
     </table>
-    <a href="{% url 'create' %}" class="btn btn-primary">
-        글 작성
-    </a>
-
+    {% if isUser %}
+        <a href="{% url 'create' %}" class="btn btn-primary">글 작성</a>
+    {% else %}
+        <a href="{% url 'create' %}" class="btn btn-primary" onclick="alert('로그인이 필요한 기능입니다.'); return false;">글 작성</a>
+    {% endif %}
     <!-- 페이징처리 시작 -->
     <ul class="pagination justify-content-center">
         <!-- 이전페이지 -->
