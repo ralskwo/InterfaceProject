@@ -30,6 +30,7 @@ def detail(request, question_id) :
 # board_deta
 def answer_create(request, question_id) :
     #댓글 입력
+    print("answer_create수행")
     question = Question.objects.get(id=question_id)
     '''
     #입력받은 내용 DB에 생성
@@ -37,7 +38,7 @@ def answer_create(request, question_id) :
     #answer.save()  로도 가능
     '''
     question.answer_set.create(content=request.POST.get('content'),
-                               create_date=timezone.now)
+                               create_date=timezone.now())
     return redirect('detail', question_id=question_id)
 
 
