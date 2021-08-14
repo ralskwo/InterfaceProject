@@ -42,7 +42,6 @@ def answer_create(request, question_id) :
 
 # myboard_create
 def question_create(request):
-    print("question_create수행")
     #질문등록
     if request.method == 'POST' :
         title = request.POST.get('title')
