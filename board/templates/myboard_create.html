@@ -1,23 +1,31 @@
 {% extends 'base_board.html' %}
 
 {% block content %}
-{% if msg %}
-    <h2>{{ msg }}</h2>
-    <hr>
-    <a class="btn" href="{% url 'create' %}">작성 화면</a>
-    <a class="btn" href="{% url 'index' %}">리스트 화면</a><br>
-{% else %}
-    <h2> 게시글 등록 </h2>
-    <hr>
-    <form method="post" action="{% url 'create' %}" class="post-form my-3">
-    {% csrf_token %}
-        <p> 제목 : <input type="text" name="title"></p>
-        <p> 내용 : <textarea name="content" rows="5" cols="30"></textarea></p>
-    <input type="submit" value="작성보내기">
+    {% if msg %}
+        <h2>{{ msg }}</h2>
+        <hr>
+        <a class="btn" href="{% url 'create' %}">작성 화면</a>
+        <a class="btn" href="{% url 'index' %}">리스트 화면</a><br>
+    {% else %}
+        <h2> 게시글 등록 </h2>
+        <hr>
+        <form method="post" action="{% url 'create' %}" class="post-form my-3" onsubmit="return formCheck();">
+        {% csrf_token %}
+        <p> 제목 : <input type="text" name="title" id="title_"></p>
+        <p> 내용 : <textarea name="content" id="content_"  rows="5" cols="30"></textarea></p>
+    <input type="submit" id="submit_" value="작성보내기"/>
     <button onclick='write_cancel(); return false;'>작성취소</button>
 
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script>
+        $(document).ready(function(){
+            $("#submit_").click(function(){
+            if($("#title_").val().length==0){ alert("제목을 입력하세요."); $("#title_").focus(); return false; }
+            if($("#content_").val().length==0){ alert("내용을 입력하세요."); $("#content_").focus(); return false; }
+            });
+        });
+
         function write_cancel() {
             location.href="{% url 'index' %}"
         }

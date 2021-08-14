@@ -3,13 +3,19 @@ from .models import *
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.conf import settings
-
+from django.core.paginator import Paginator
 
 # board_list
 def index(request) :
     #목록
+    #page = request.Get.get('page', 'detail/1')
     question_list = Question.objects.order_by('-create_date')
+
+    #paginator = Paginator(question_list, 3)
+    #page_obj = paginator.get_page(page)
+
     context = {'question_list': question_list}
+    #context = {'question_list': page_obj}
     return render(request, 'board_list.html', context)
 
 
@@ -21,7 +27,7 @@ def detail(request, question_id) :
     return render(request, 'board_detail.html', context)
 
 
-# board_detail
+# board_deta
 def answer_create(request, question_id) :
     #댓글 입력
     question = Question.objects.get(id=question_id)
@@ -36,7 +42,7 @@ def answer_create(request, question_id) :
 
 
 # myboard_create
-def question_create(request) :
+def question_create(request):
     print("question_create수행")
     #질문등록
     if request.method == 'POST' :
