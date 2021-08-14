@@ -50,7 +50,18 @@
         <div class="form-group">
             <textarea name="content" id="content" class="form-control" rows="10"></textarea>
         </div>
-        <input type="submit" value="댓글 입력"><a class="btn btn-primary" href="{% url 'index' %}">글 목록</a>
+        <input type="submit" value="댓글 입력">
+        <a class="btn btn-primary" href="{% url 'index' %}">글 목록</a>
+        {% if question.user == comment_user %}
+            <a class="btn btn-primary" onclick="dd_confirm({{ question.id }})">삭제</a>
+        {% endif %}
     </form>
 </div>
+<script>
+    function dd_confirm(id) {
+        let result = confirm("글을 삭제하겠습니까??");
+        if( result )
+            location.href = "{% url 'delete' %}?id="+id;
+     }
+</script>
 {% endblock %}

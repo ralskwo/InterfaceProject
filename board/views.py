@@ -26,7 +26,8 @@ def index(request) :
 def detail(request, question_id) :
     #내용 출력
     question = Question.objects.get(id=question_id)
-    context = {'question': question}
+    comment_user = request.user
+    context = {'question': question, 'comment_user': comment_user}
     return render(request, 'board_detail.html', context)
 
 
@@ -65,4 +66,10 @@ def question_create(request):
     else :
         context = None
     return render(request, 'myboard_create.html', context)
+
+def delete_content(request):
+    question_id = request.GET['id']
+    writer = Question.objects.get(id=question_id)
+    writer.delete()
+    return redirect("index")
 # Create your views here.
