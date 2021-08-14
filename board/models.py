@@ -16,6 +16,6 @@ class Answer(models.Model) :
 
 
     def __str__(self):
-        return f"{self.id}, {self.question}, {self.content}, {self.create_date}"
+        return f"{self.id}, {self.question}, {self.content}, {self.create_date}, {self.comment_user}"
 
 # Create your models here.
