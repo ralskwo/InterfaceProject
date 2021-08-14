@@ -11,8 +11,8 @@
         <hr>
         <form method="post" action="{% url 'create' %}" class="post-form my-3" onsubmit="return formCheck();">
         {% csrf_token %}
-        <p> 제목 : <input type="text" name="title" id="title_"></p>
-        <p> 내용 : <textarea name="content" id="content_"  rows="5" cols="30"></textarea></p>
+        <p> 제목 : <input type="text" name="title" id="title_"  required></p>
+        <p> 내용 : <textarea name="content" id="content_"  rows="5" cols="30" required></textarea></p>
     <input type="submit" id="submit_" value="작성보내기"/>
     <button onclick='write_cancel(); return false;'>작성취소</button>
 
