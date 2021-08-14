@@ -33,11 +33,7 @@ def answer_create(request, question_id) :
     #댓글 입력
     # try:
     #     question = Question.objects.get(id=question_id)
-    #     '''
-    #     #입력받은 내용 DB에 생성
-    #     answer = Answer(question=question, content=request.POST.get('content'), create_date=timezone.now())
-    #     #answer.save()  로도 가능
-    #     '''
+    #
     #     comment_user = request.user
     #     print(comment_user)
     #     question.answer_set.create(content=request.POST.get('content'),
@@ -46,6 +42,7 @@ def answer_create(request, question_id) :
     #     return redirect('detail', question_id=question_id)
     # except:
     #     return redirect('detail')
+
     question = Question.objects.get(id=question_id)
 
     comment_user = request.user
