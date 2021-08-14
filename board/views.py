@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
-from django.contrib.auth.models import User
 from django.utils import timezone
-from django.conf import settings
 from django.core.paginator import Paginator
 
 # board_list
@@ -16,7 +14,6 @@ def index(request) :
 
     isUser = request.user.is_authenticated
 
-    #context = {'question_list': question_list, 'isUser': isUser}
     context = {'question_list': page_obj, 'isUser': isUser}
     return render(request, 'board_list.html', context)
 
@@ -34,6 +31,7 @@ def detail(request, question_id) :
 # board_deta
 def answer_create(request, question_id) :
     #댓글 입력
+<<<<<<< HEAD
     try:
         question = Question.objects.get(id=question_id)
         '''
@@ -49,11 +47,20 @@ def answer_create(request, question_id) :
         return redirect('detail', question_id=question_id)
     except:
         return redirect('detail')
+=======
+    question = Question.objects.get(id=question_id)
+
+    comment_user = request.user
+    print(comment_user)
+    question.answer_set.create(content=request.POST.get('content'),
+                               create_date=timezone.now(),
+                               comment_user=comment_user)
+    return redirect('detail', question_id=question_id)
+>>>>>>> 43a0f254197ac38ef7b042e8f58910f97fbcb007
 
 
 # myboard_create
 def question_create(request):
-    print("question_create수행")
     #질문등록
     if request.method == 'POST' :
         title = request.POST.get('title')
@@ -65,6 +72,7 @@ def question_create(request):
         context = { "msg" : "저장 완료"  }
     else :
         context = None
+<<<<<<< HEAD
     return render(request, 'myboard_create.html', context)
 
 def delete_content(request):
@@ -73,3 +81,6 @@ def delete_content(request):
     writer.delete()
     return redirect("index")
 # Create your views here.
+=======
+    return render(request, 'myboard_create.html', context)
+>>>>>>> 43a0f254197ac38ef7b042e8f58910f97fbcb007

@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-from django.template import loader
 from .models import *
 from os import listdir, walk
 
@@ -97,19 +95,3 @@ def princess(request) :
 
 
     return render(request, "princess.html", context)
-
-
-def test(request):
-    princess_list = DBPrincess.objects.all()
-    princess_dict = dict()
-
-    full_name = [i for i in listdir("workspace/static/assets/img/Main1/")]
-    princess_name = [name[:name.index('.')] for name in full_name]
-
-    for p in princess_list:
-        princess_dict[p.name] = {'lat': float(p.country.latitude), 'lng': float(p.country.longitude)}
-        print(p.name, princess_dict[p.name])
-
-    context = {"princess_dict": princess_dict, "princess_name": princess_name}
-
-    return render(request, "test.html", context)
