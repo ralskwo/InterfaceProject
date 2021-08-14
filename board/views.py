@@ -30,24 +30,6 @@ def detail(request, question_id) :
 
 # board_deta
 def answer_create(request, question_id) :
-    #댓글 입력
-<<<<<<< HEAD
-    try:
-        question = Question.objects.get(id=question_id)
-        '''
-        #입력받은 내용 DB에 생성
-        answer = Answer(question=question, content=request.POST.get('content'), create_date=timezone.now()) 
-        #answer.save()  로도 가능
-        '''
-        comment_user = request.user
-        print(comment_user)
-        question.answer_set.create(content=request.POST.get('content'),
-                                   create_date=timezone.now(),
-                                   comment_user=comment_user)
-        return redirect('detail', question_id=question_id)
-    except:
-        return redirect('detail')
-=======
     question = Question.objects.get(id=question_id)
 
     comment_user = request.user
@@ -56,7 +38,6 @@ def answer_create(request, question_id) :
                                create_date=timezone.now(),
                                comment_user=comment_user)
     return redirect('detail', question_id=question_id)
->>>>>>> 43a0f254197ac38ef7b042e8f58910f97fbcb007
 
 
 # myboard_create
@@ -72,7 +53,6 @@ def question_create(request):
         context = { "msg" : "저장 완료"  }
     else :
         context = None
-<<<<<<< HEAD
     return render(request, 'myboard_create.html', context)
 
 def delete_content(request):
@@ -81,6 +61,3 @@ def delete_content(request):
     writer.delete()
     return redirect("index")
 # Create your views here.
-=======
-    return render(request, 'myboard_create.html', context)
->>>>>>> 43a0f254197ac38ef7b042e8f58910f97fbcb007
